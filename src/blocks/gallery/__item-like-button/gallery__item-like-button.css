@@ -1,0 +1,17 @@
+.gallery__item-like-button {
+  padding: 0;
+  width: 22px;
+  height: 19px;
+  background-image: url(../../../images/icon-like_neutral.svg);
+  background-repeat: no-repeat;
+  background-color: inherit;
+  border: none;
+  align-self: center;
+  justify-self: center;
+  cursor: pointer;
+  transition: opacity .1s ease;
+}
+
+.gallery__item-like-button:hover {
+  opacity: .5;
+}

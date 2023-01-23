@@ -1,0 +1,25 @@
+.preloader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: auto;
+  text-shadow: 0 0 1px #fff;
+  font-size: 42px;
+  animation: load 1.2s infinite 0s ease-in-out;
+  animation-direction: alternate;
+}
+
+@keyframes load {
+  0% {
+    opacity: .95;
+    filter: blur(.5px);
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-width: 800px) {
+  .preloader {
+    font-size: calc(27px + (15 + 15 * .7) * (100vw - 320px) / 800);
+  }
+}

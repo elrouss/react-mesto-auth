@@ -1,0 +1,5 @@
+.gallery__item-image-container {
+  display: inline-block;
+  overflow: hidden;
+  grid-area: image;
+}
