@@ -10,6 +10,7 @@
 @import url(./blocks/welcome-window/__fieldset-user-data/welcome-window__fieldset-user-data.css);
 @import url(./blocks/welcome-window/__input/welcome-window__input.css);
 @import url(./blocks/welcome-window/__btn-submit/welcome-window__btn-submit.css);
+@import url(./blocks/welcome-window/__paragraph/welcome-window__paragraph.css);
 @import url(./blocks/welcome-window/__link/welcome-window__link.css);
 
 /* PRELOADER */

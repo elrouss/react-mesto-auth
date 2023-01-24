@@ -8,3 +8,16 @@
   font-weight: 900;
   font-style: normal;
 }
+
+@media screen and (max-width: 1000px) {
+  .page {
+    margin-left: calc(60 / 1000 * 100%);
+    margin-right: calc(60 / 1000 * 100%);
+  }
+}
+
+@media screen and (max-width: 696px) {
+  .page {
+    margin: 0 auto
+  }
+}

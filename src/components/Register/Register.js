@@ -6,7 +6,7 @@ export default function Register() {
       heading={'Регистрация'}
       btnSubmit={'Зарегистрироваться'}
     >
-      <p>Уже зарегистрированы?&nbsp;
+      <p className="welcome-window__paragraph">Уже зарегистрированы?&nbsp;
         <a className="welcome-window__link" href="http://localhost:3000/sign-up">Войти</a>
       </p>
     </WelcomeWindowWithForm>

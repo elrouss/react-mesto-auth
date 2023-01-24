@@ -12,3 +12,11 @@
 .header__btn:hover {
   opacity: .6;
 }
+
+@media screen and (max-width: 696px) {
+  .header__btn {
+    margin-top: calc(7px + (-7 -7 * .7) * (100vw - 320px) / 696);;
+    font-size: calc(14px + (4 + 4 * .7) * (100vw - 320px) / 696);
+    line-height: calc(17 / 14 * 100%);
+  }
+}

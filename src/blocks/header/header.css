@@ -6,17 +6,16 @@
   justify-content: space-between;
 }
 
-@media (max-width: 1279px) {
+@media screen and (max-width: 1279px) {
   .header {
     margin-top: calc(28px + (17 + 17 * .7) * (100vw - 320px) / 1279);
-    padding-bottom: calc(27px + (13 + 13 * .7) * (100vw - 320px) / 1279);
+    padding-bottom: calc(31px + (9 + 9 * .7) * (100vw - 320px) / 1279);
   }
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 696px) {
   .header {
-    max-width: 664px;
-    margin-left: auto;
-    margin-right: auto;
+    padding-left: calc(30px + (11.813 + 11.813 * .7) * (100vw - 320px) / 696);
+    padding-right: calc(30px + (11.813 + 11.813 * .7) * (100vw - 320px) / 696);
   }
 }

@@ -11,7 +11,7 @@
     'subtitle subtitle';
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .profile__info {
     padding-top: 22.25px;
     text-align: center;

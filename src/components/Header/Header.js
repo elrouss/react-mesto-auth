@@ -8,13 +8,13 @@ export default function Header() {
   function renderBtnText() {
     if (href.endsWith('/sign-up')) {
       return (
-        'Войти'
+        'Регистрация'
       );
     };
 
     if (href.endsWith('/sign-in')) {
       return (
-        'Регистрация'
+        'Войти'
       );
     };
 

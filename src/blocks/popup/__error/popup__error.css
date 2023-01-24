@@ -15,7 +15,7 @@
   top: 138px;
 }
 
-@media (max-width: 696px) {
+@media screen and (max-width: 696px) {
   .popup__error {
     width: 238px;
     font-size: 11px;

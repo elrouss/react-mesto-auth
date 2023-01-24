@@ -10,3 +10,11 @@
   text-align: center;
   color: #fff;
 }
+
+@media screen and (max-width: 696px) {
+  .welcome-window {
+    margin-top: calc(40px + (20 + 20 * .7) * (100vw - 320px) / 696);
+    margin-right: calc(30px + (-30 -30 * .7) * (100vw - 320px) / 696);
+    margin-left: calc(30px + (-30 -30 * .7) * (100vw - 320px) / 696);
+  }
+}
