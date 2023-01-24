@@ -13,6 +13,7 @@ import Header from '../Header/Header.js';
 import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
 
+import InfoTooltip from '../InfoTooltip/InfoTooltip.js';
 import EditProfilePopup from '../EditProfilePopup/EditProfilePopup.js';
 import EditAvatarPopup from '../EditAvatarPopup/EditAvatarPopup.js';
 import AddPlacePopup from '../AddPlacePopup/AddPlacePopup.js';
@@ -178,7 +179,8 @@ export default function App() {
 
   return (
     <>
-      <Routes>
+      <InfoTooltip />
+      {/* <Routes>
         <Route path='/' element={<Header />}>
           <Route
             index
@@ -247,7 +249,7 @@ export default function App() {
           <Route path='sign-up' element={<Login />} />
           <Route path='sign-in' element={<Register />} />
         </Route>
-      </Routes>
+      </Routes> */}
     </>
   );
 };
