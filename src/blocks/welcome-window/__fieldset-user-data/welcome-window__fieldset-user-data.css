@@ -1,0 +1,8 @@
+.welcome-window__fieldset-user-data {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}

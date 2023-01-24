@@ -3,12 +3,24 @@
 
 @import url(./blocks/page/page.css);
 
+/* WELCOME WINDOW */
+@import url(./blocks/welcome-window/welcome-window.css);
+@import url(./blocks/welcome-window/__heading/welcome-window__heading.css);
+@import url(./blocks/welcome-window/__form/welcome-window__form.css);
+@import url(./blocks/welcome-window/__fieldset-user-data/welcome-window__fieldset-user-data.css);
+@import url(./blocks/welcome-window/__input/welcome-window__input.css);
+@import url(./blocks/welcome-window/__btn-submit/welcome-window__btn-submit.css);
+@import url(./blocks/welcome-window/__link/welcome-window__link.css);
+
 /* PRELOADER */
 @import url(./blocks/preloader/preloader.css);
 
 /* HEADER */
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__logo/header__logo.css);
+@import url(./blocks/header/__data/header__data.css);
+@import url(./blocks/header/__email/header__email.css);
+@import url(./blocks/header/__btn/header__btn.css);
 
 /* MAIN */
 @import url(./blocks/content/content.css);

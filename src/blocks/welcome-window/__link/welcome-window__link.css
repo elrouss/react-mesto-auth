@@ -1,0 +1,9 @@
+.welcome-window__link {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity .5s ease;
+}
+
+.welcome-window__link:hover {
+  opacity: .6;
+}
