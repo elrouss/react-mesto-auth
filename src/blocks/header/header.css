@@ -1,5 +1,5 @@
 .header {
-  margin-top: 45px;
+  padding-top: 45px;
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(84, 84, 84, .7);
   display: flex;
@@ -8,7 +8,7 @@
 
 @media screen and (max-width: 1279px) {
   .header {
-    margin-top: calc(28px + (17 + 17 * .7) * (100vw - 320px) / 1279);
+    padding-top: calc(28px + (17 + 17 * .7) * (100vw - 320px) / 1279);
     padding-bottom: calc(31px + (9 + 9 * .7) * (100vw - 320px) / 1279);
   }
 }
@@ -17,5 +17,6 @@
   .header {
     padding-left: calc(30px + (11.813 + 11.813 * .7) * (100vw - 320px) / 696);
     padding-right: calc(30px + (11.813 + 11.813 * .7) * (100vw - 320px) / 696);
+    border-top: 1px solid rgba(84, 84, 84, .7);
   }
 }

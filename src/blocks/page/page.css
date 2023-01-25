@@ -1,23 +1,9 @@
 .page {
   max-width: 880px;
-  height: 100%;
-  margin: 0 auto;
-  background-color: #000;
-  color: #fff;
-  font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
-  font-weight: 900;
-  font-style: normal;
+  width: 100%;
+  transition: transform .25s ease;
 }
 
-@media screen and (max-width: 1000px) {
-  .page {
-    margin-left: calc(60 / 1000 * 100%);
-    margin-right: calc(60 / 1000 * 100%);
-  }
-}
-
-@media screen and (max-width: 696px) {
-  .page {
-    margin: 0 auto
-  }
+.page.active {
+  transform: translateY(142px);
 }

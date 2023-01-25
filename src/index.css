@@ -1,6 +1,7 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/fonts.css);
 
+@import url(./blocks/body/body.css);
 @import url(./blocks/page/page.css);
 
 /* WELCOME WINDOW */
@@ -20,8 +21,11 @@
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__logo/header__logo.css);
 @import url(./blocks/header/__data/header__data.css);
+@import url(./blocks/header/__data/_display/header__data_display_mobile.css);
 @import url(./blocks/header/__email/header__email.css);
 @import url(./blocks/header/__btn/header__btn.css);
+@import url(./blocks/header/__burger/header__burger.css);
+@import url(./blocks/header/__burger-line/header__burger-line.css);
 
 /* MAIN */
 @import url(./blocks/content/content.css);

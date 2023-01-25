@@ -4,7 +4,7 @@
 
 @media screen and (max-width: 1279px) {
   .content {
-    margin: 42px auto 0 auto;
+    margin: 42px auto 0;
     max-width: calc(282px + (598 + 598 * .7) * (100vw - 320px) / 1279);
   }
 }

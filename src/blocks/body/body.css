@@ -1,0 +1,23 @@
+.body {
+  max-width: 880px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+@media screen and (max-width: 1000px) {
+  .body {
+    margin-left: calc(60 / 1000 * 100%);
+    margin-right: calc(60 / 1000 * 100%);
+  }
+}
+
+@media screen and (max-width: 696px) {
+  .body {
+    margin: 0 auto
+  }
+}

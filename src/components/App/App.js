@@ -13,7 +13,7 @@ import Header from '../Header/Header.js';
 import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
 
-import InfoTooltip from '../InfoTooltip/InfoTooltip.js';
+// import InfoTooltip from '../InfoTooltip/InfoTooltip.js';
 import EditProfilePopup from '../EditProfilePopup/EditProfilePopup.js';
 import EditAvatarPopup from '../EditAvatarPopup/EditAvatarPopup.js';
 import AddPlacePopup from '../AddPlacePopup/AddPlacePopup.js';
@@ -31,6 +31,8 @@ export default function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [activeCardId, setActiveCardId] = useState('');
   const [cards, setCards] = useState([]);
+
+  const [isActiveBurgerMenu, setIsActiveBurgerMenu] = useState(false);
 
   const [isEditProfilePopupOpened, setEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpened, setAddPlacePopupOpen] = useState(false);
@@ -52,6 +54,10 @@ export default function App() {
         setIsPageLoading(false);
       })
   }, []);
+
+  function toggleBurgerMenu() {
+    setIsActiveBurgerMenu(!isActiveBurgerMenu);
+  };
 
   function openEditProfilePopup() {
     setEditProfilePopupOpen(true);
@@ -178,10 +184,14 @@ export default function App() {
   };
 
   return (
-    <>
-      <InfoTooltip />
-      {/* <Routes>
-        <Route path='/' element={<Header />}>
+    <div className={`page ${isActiveBurgerMenu && 'active'}`}>
+      <Routes>
+        <Route path='/' element={
+          <Header
+            isActive={isActiveBurgerMenu}
+            onActive={toggleBurgerMenu}
+          />
+        }>
           <Route
             index
             element={
@@ -249,7 +259,7 @@ export default function App() {
           <Route path='sign-up' element={<Login />} />
           <Route path='sign-in' element={<Register />} />
         </Route>
-      </Routes> */}
-    </>
+      </Routes>
+    </div>
   );
 };
