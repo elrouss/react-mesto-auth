@@ -1,5 +1,10 @@
+import WelcomeWindowWithForm from "../WelcomeWindowWithForm/WelcomeWindowWithForm";
+
 export default function Login() {
   return (
-    <p>test login</p>
+    <WelcomeWindowWithForm
+      heading={'Вход'}
+      btnSubmit={'Войти'}
+    />
   );
 };

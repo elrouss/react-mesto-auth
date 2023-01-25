@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 import { api } from '../../utils/api.js';
@@ -13,6 +13,7 @@ import Header from '../Header/Header.js';
 import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
 
+// import InfoTooltip from '../InfoTooltip/InfoTooltip.js';
 import EditProfilePopup from '../EditProfilePopup/EditProfilePopup.js';
 import EditAvatarPopup from '../EditAvatarPopup/EditAvatarPopup.js';
 import AddPlacePopup from '../AddPlacePopup/AddPlacePopup.js';
@@ -20,19 +21,23 @@ import ImagePopup from '../ImagePopup/ImagePopup.js';
 import ConfirmCardDeletionPopup from '../ConfirmCardDeletionPopup/ConfirmCardDeletionPopup.js';
 
 export default function App() {
-  const [isEditProfilePopupOpened, setEditProfilePopupOpen] = useState(false);
-  const [isAddPlacePopupOpened, setAddPlacePopupOpen] = useState(false);
-  const [isEditAvatarPopupOpened, setEditAvatarPopupOpen] = useState(false);
-  const [isConfirmationCardDeletionPopupOpened, setConfirmationCardDeletionPopupOpened] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const [isPageLoading, setIsPageLoading] = useState(false);
   const [isProcessLoading, setIsProcessLoading] = useState(false);
 
+  const [currentUser, setCurrentUser] = useState({});
+
   const [selectedCard, setSelectedCard] = useState({});
   const [activeCardId, setActiveCardId] = useState('');
-
-  const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
+
+  const [isActiveBurgerMenu, setIsActiveBurgerMenu] = useState(false);
+
+  const [isEditProfilePopupOpened, setEditProfilePopupOpen] = useState(false);
+  const [isAddPlacePopupOpened, setAddPlacePopupOpen] = useState(false);
+  const [isEditAvatarPopupOpened, setEditAvatarPopupOpen] = useState(false);
+  const [isConfirmationCardDeletionPopupOpened, setConfirmationCardDeletionPopupOpened] = useState(false);
 
   useEffect(() => {
     setIsPageLoading(true);
@@ -49,6 +54,10 @@ export default function App() {
         setIsPageLoading(false);
       })
   }, []);
+
+  function toggleBurgerMenu() {
+    setIsActiveBurgerMenu(!isActiveBurgerMenu);
+  };
 
   function openEditProfilePopup() {
     setEditProfilePopupOpen(true);
@@ -175,73 +184,82 @@ export default function App() {
   };
 
   return (
-    <>
+    <div className={`page ${isActiveBurgerMenu && 'active'}`}>
       <Routes>
-        <Route path='/sign-up' element={<Login />} />
-        <Route path='/sign-in' element={<Register />} />
-        <Route
-          path='/'
-          element={
-            <>
-              {isPageLoading
-                ? <Preloader />
-                : <>
-                  <Header />
-                  <CurrentUserContext.Provider value={currentUser}>
-                    <Main
-                      onEditProfile={openEditProfilePopup}
-                      onAddPlace={openAddPlacePopup}
-                      onEditAvatar={openEditAvatarPopup}
-                      onConfirmationCardDeletion={openConfirmationCardDeletionPopup}
-                      onCardClick={handleCardClick}
+        <Route path='/' element={
+          <Header
+            isActive={isActiveBurgerMenu}
+            onActive={toggleBurgerMenu}
+          />
+        }>
+          <Route
+            index
+            element={
+              !isLoggedIn
+                ? <Navigate to='sign-up' replace />
+                :
+                <>
+                  {isPageLoading
+                    ? <Preloader />
+                    : <>
+                      <CurrentUserContext.Provider value={currentUser}>
+                        <Main
+                          onEditProfile={openEditProfilePopup}
+                          onAddPlace={openAddPlacePopup}
+                          onEditAvatar={openEditAvatarPopup}
+                          onConfirmationCardDeletion={openConfirmationCardDeletionPopup}
+                          onCardClick={handleCardClick}
 
-                      cards={cards}
-                      onCardLike={handleCardLike}
-                    />
-                  </CurrentUserContext.Provider>
+                          cards={cards}
+                          onCardLike={handleCardLike}
+                        />
+                      </CurrentUserContext.Provider>
 
-                  <Footer />
+                      <Footer />
 
-                  <CurrentUserContext.Provider value={currentUser}>
-                    <EditProfilePopup
-                      onUpdateUser={handleUpdateUser}
-                      isOpened={isEditProfilePopupOpened}
-                      popupPackProps={popupPackProps}
-                    />
+                      <CurrentUserContext.Provider value={currentUser}>
+                        <EditProfilePopup
+                          onUpdateUser={handleUpdateUser}
+                          isOpened={isEditProfilePopupOpened}
+                          popupPackProps={popupPackProps}
+                        />
 
-                    <EditAvatarPopup
-                      onUpdateAvatar={handleUpdateAvatar}
-                      isOpened={isEditAvatarPopupOpened}
-                      popupPackProps={popupPackProps}
-                    />
+                        <EditAvatarPopup
+                          onUpdateAvatar={handleUpdateAvatar}
+                          isOpened={isEditAvatarPopupOpened}
+                          popupPackProps={popupPackProps}
+                        />
 
-                    <AddPlacePopup
-                      onAddPlace={handleAddPlaceSubmit}
-                      isOpened={isAddPlacePopupOpened}
-                      popupPackProps={popupPackProps}
-                    />
+                        <AddPlacePopup
+                          onAddPlace={handleAddPlaceSubmit}
+                          isOpened={isAddPlacePopupOpened}
+                          popupPackProps={popupPackProps}
+                        />
 
-                    <ConfirmCardDeletionPopup
-                      activeCardId={activeCardId}
+                        <ConfirmCardDeletionPopup
+                          activeCardId={activeCardId}
 
-                      onCardDelete={handleCardDelete}
-                      isOpened={isConfirmationCardDeletionPopupOpened}
-                      popupPackProps={popupPackProps}
-                    />
-                  </CurrentUserContext.Provider>
+                          onCardDelete={handleCardDelete}
+                          isOpened={isConfirmationCardDeletionPopupOpened}
+                          popupPackProps={popupPackProps}
+                        />
+                      </CurrentUserContext.Provider>
 
-                  <ImagePopup
-                    card={selectedCard}
+                      <ImagePopup
+                        card={selectedCard}
 
-                    onClose={closeAllPopups}
-                    closePopupsOnOutsideClick={closePopupsOnOutsideClick}
-                  />
+                        onClose={closeAllPopups}
+                        closePopupsOnOutsideClick={closePopupsOnOutsideClick}
+                      />
+                    </>
+                  }
                 </>
-              }
-            </>
-          }
-        />
+            }
+          />
+          <Route path='sign-up' element={<Login />} />
+          <Route path='sign-in' element={<Register />} />
+        </Route>
       </Routes>
-    </>
+    </div>
   );
 };

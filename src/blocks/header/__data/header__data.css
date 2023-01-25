@@ -1,0 +1,8 @@
+.header__data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 24px;
+  font-size: 18px;
+  line-height: calc(22 / 18 * 100%);
+}

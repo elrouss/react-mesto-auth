@@ -5,13 +5,13 @@
     'avatar info add-button';
 }
 
-@media (max-width: 1072px) {
+@media screen and (max-width: 1072px) {
   .profile {
     grid-template-columns: 120px 366px 1fr;
   }
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .profile {
     grid-template-columns: 1fr;
     grid-template-areas:

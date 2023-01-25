@@ -18,7 +18,7 @@
   }
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .preloader {
     font-size: calc(27px + (15 + 15 * .7) * (100vw - 320px) / 800);
   }
