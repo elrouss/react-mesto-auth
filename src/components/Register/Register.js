@@ -7,7 +7,7 @@ export default function Register() {
       btnSubmit={'Зарегистрироваться'}
     >
       <p className="welcome-window__paragraph">Уже зарегистрированы?&nbsp;
-        <a className="welcome-window__link" href="http://localhost:3000/react-mesto-auth/sign-up">Войти</a>
+        <a className="welcome-window__link" href="http://localhost:3000/react-mesto-auth/sign-in">Войти</a>
       </p>
     </WelcomeWindowWithForm>
   );

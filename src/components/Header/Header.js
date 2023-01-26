@@ -27,13 +27,13 @@ export default function Header(props) {
   };
 
   function renderBtnText() {
-    if (href.endsWith('/sign-up')) {
+    if (href.endsWith('/sign-in')) {
       return (
         'Регистрация'
       );
     };
 
-    if (href.endsWith('/sign-in')) {
+    if (href.endsWith('/sign-up')) {
       return (
         'Войти'
       );
