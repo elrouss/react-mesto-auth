@@ -186,7 +186,7 @@ export default function App() {
   return (
     <div className={`page ${isActiveBurgerMenu && 'active'}`}>
       <Routes>
-        <Route path='/' element={
+        <Route path='react-mesto-auth/' element={
           <Header
             isActive={isActiveBurgerMenu}
             onActive={toggleBurgerMenu}

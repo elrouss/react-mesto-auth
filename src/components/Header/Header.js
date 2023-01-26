@@ -9,7 +9,7 @@ export default function Header(props) {
 
   const windowWidth = useWindowDimensions();
   const href = window.location.href;
-  const rootHref = href.endsWith('http://localhost:3000/');
+  const rootHref = href.endsWith('react-mesto-auth/');
 
   const burgerLine = <span className="header__burger-line" />;
 
