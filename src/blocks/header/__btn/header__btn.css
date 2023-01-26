@@ -6,6 +6,7 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  text-decoration: none;
   transition: opacity .4s ease;
 }
 
