@@ -11,7 +11,7 @@ export default function Header({ isActive, onActive }) {
   const isRootHref = href.pathname.endsWith('/react-mesto-auth');
   const isLoginHref = href.pathname.endsWith('/sign-in');
 
-  const burgerLine = <span className="header__burger-line" />;
+  const burgerMenu = Array(3).fill(<span className="header__burger-line" />);
 
   function isDisplayMobileAndRootHref() {
     return windowWidth <= 696 && isRootHref;
@@ -33,7 +33,6 @@ export default function Header({ isActive, onActive }) {
               {isLoginHref ? 'Регистрация' : 'Войти'}
             </Link>
         }
-
       </div>
     );
   };
@@ -51,9 +50,7 @@ export default function Header({ isActive, onActive }) {
             aria-label="Открытие меню с электронным адресом пользователя и кнопкой выхода с сайта"
             onClick={onActive}
           >
-            {burgerLine}
-            {burgerLine}
-            {burgerLine}
+            {burgerMenu}
           </button>
         }
         {!isDisplayMobileAndRootHref() && renderHeaderMenu()}
