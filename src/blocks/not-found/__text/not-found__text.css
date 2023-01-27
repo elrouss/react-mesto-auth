@@ -1,0 +1,18 @@
+.not-found__text {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+}
+
+.not-found__text > p {
+  margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .not-found__text {
+    font-size: calc(15px + (3 + 3 * .7) * (100vw - 320px) / 800);
+  }
+}

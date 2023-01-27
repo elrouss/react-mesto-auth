@@ -15,6 +15,8 @@ import Header from '../Header/Header.js';
 import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
 
+import PageNotFound from '../PageNotFound/PageNotFound.js';
+
 // import InfoTooltip from '../InfoTooltip/InfoTooltip.js';
 import EditProfilePopup from '../EditProfilePopup/EditProfilePopup.js';
 import EditAvatarPopup from '../EditAvatarPopup/EditAvatarPopup.js';
@@ -298,6 +300,7 @@ export default function App() {
           <Route path='sign-in' element={<Login handleLogin={handleLogin} />} />
           <Route path='sign-up' element={<Register />} />
         </Route>
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
     </div>
   );

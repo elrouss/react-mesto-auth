@@ -63,7 +63,7 @@ export default function Header({ userData, setIsLoggedIn, isActive, onActive }) 
           <button
             className={`header__burger ${isActive && 'active'}`}
             type="button"
-            aria-label="Открытие меню с электронным адресом пользователя и кнопкой выхода с сайта"
+            aria-label="Открытие меню с электронным адресом пользователя и кнопкой выхода из личного кабинета"
             onClick={onActive}
           >
             {burgerMenu}

@@ -1,0 +1,13 @@
+.not-found__image {
+  width: 300px;
+  height: 300px;
+  background: url(../../../images/page-not-found.gif) center no-repeat;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  .not-found__image {
+    width: calc(250px + (50 + 50 * .7) * (100vw - 320px) / 800);
+    height: calc(250px + (50 + 50 * .7) * (100vw - 320px) / 800);
+  }
+}
