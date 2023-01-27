@@ -230,6 +230,7 @@ export default function App() {
             isActive={isActiveBurgerMenu}
             onActive={toggleBurgerMenu}
             userData={userData}
+            setIsLoggedIn={setIsLoggedIn}
           />
         }>
           <Route
