@@ -47,6 +47,7 @@ export default function App() {
   const [isEditProfilePopupOpened, setEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpened, setAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpened, setEditAvatarPopupOpen] = useState(false);
+  const [isImagePopupOpened, setIsImagePopupOpened] = useState(false);
   const [isConfirmationCardDeletionPopupOpened, setConfirmationCardDeletionPopupOpened] = useState(false);
 
   useEffect(() => {
@@ -119,24 +120,31 @@ export default function App() {
 
   function handleCardClick(cardData) {
     setSelectedCard(cardData);
+    setIsImagePopupOpened(true);
   };
 
-  const closeAllPopups = useCallback(() => {
+  function closeAllPopups() {
     setEditProfilePopupOpen(false);
     setAddPlacePopupOpen(false);
     setEditAvatarPopupOpen(false);
     setConfirmationCardDeletionPopupOpened(false);
+    setIsImagePopupOpened(false);
+  };
 
-    setSelectedCard({});
-  }, []);
+  useEffect(() => {
+    if (!isImagePopupOpened) {
+      setTimeout(() => setSelectedCard({}), 400);
+    };
+  }, [isImagePopupOpened]);
 
-  const closePopupsOnOutsideClick = useCallback((evt) => {
+  function closePopupsOnOutsideClick(evt) {
     const target = evt.target;
+    const checkSelector = selector => target.classList.contains(selector);
 
-    if (target.classList.contains('popup_opened') || target.classList.contains('popup__closing-button')) {
+    if (checkSelector('popup_opened') || checkSelector('popup__closing-button')) {
       closeAllPopups();
     };
-  }, [closeAllPopups]);
+  };
 
   const popupPackProps = {
     onClose: closeAllPopups,
@@ -289,6 +297,7 @@ export default function App() {
                     <ImagePopup
                       card={selectedCard}
 
+                      isImagePopupOpened={isImagePopupOpened}
                       onClose={closeAllPopups}
                       closePopupsOnOutsideClick={closePopupsOnOutsideClick}
                     />
