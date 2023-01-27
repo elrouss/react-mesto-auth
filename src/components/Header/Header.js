@@ -3,7 +3,7 @@ import { Outlet, useMatch, Link } from 'react-router-dom';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import logo from '../../images/header__logo_theme_light.svg';
 
-export default function Header({ isActive, onActive }) {
+export default function Header({ userData, isActive, onActive }) {
   // TODO: Исправить баг, когда исчезают элементы при наличии/отсутствии косой черты в конце url (regExp?)
   const windowWidth = useWindowDimensions();
 
@@ -23,7 +23,7 @@ export default function Header({ isActive, onActive }) {
         {
           isRootHref
             ? <>
-              <p className='header__email'>email@mail.com</p>
+              <p className='header__email'>{userData.email}</p>
               <button className='header__btn'>Выйти</button>
             </>
             : <Link

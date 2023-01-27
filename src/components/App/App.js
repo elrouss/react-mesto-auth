@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 import { api } from '../../utils/api.js';
+import { getContent } from '../../utils/auth.js';
 
 import Login from '../Login/Login.js';
 import Register from '../Register/Register.js';
@@ -22,12 +23,18 @@ import ImagePopup from '../ImagePopup/ImagePopup.js';
 import ConfirmCardDeletionPopup from '../ConfirmCardDeletionPopup/ConfirmCardDeletionPopup.js';
 
 export default function App() {
+  const navigate = useNavigate();
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [isPageLoading, setIsPageLoading] = useState(false);
   const [isProcessLoading, setIsProcessLoading] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({});
+  const [userData, setUserData] = useState({
+    _id: '',
+    email: ''
+  });
 
   const [selectedCard, setSelectedCard] = useState({});
   const [activeCardId, setActiveCardId] = useState('');
@@ -41,20 +48,51 @@ export default function App() {
   const [isConfirmationCardDeletionPopupOpened, setConfirmationCardDeletionPopupOpened] = useState(false);
 
   useEffect(() => {
-    setIsPageLoading(true);
+    if (isLoggedIn) {
+      setIsPageLoading(true);
 
-    Promise.all([api.getUserInfo(), api.getPhotocards()])
-      .then(([user, cards]) => {
-        setCurrentUser(user);
-        setCards(cards);
-      })
-      .catch((err) => {
-        console.log(`Ошибка в процессе загрузки данных пользователя и галереи карточек: ${err}`);
-      })
-      .finally(() => {
-        setIsPageLoading(false);
-      })
-  }, []);
+      Promise.all([api.getUserInfo(), api.getPhotocards()])
+        .then(([user, cards]) => {
+          setCurrentUser(user);
+          setCards(cards);
+        })
+        .catch((err) => {
+          console.log(`Ошибка в процессе загрузки данных пользователя и галереи карточек: ${err}`);
+        })
+        .finally(() => {
+          setIsPageLoading(false);
+        })
+    };
+  }, [isLoggedIn]);
+
+  function handleLogin() {
+    setIsLoggedIn(true);
+  };
+
+  const checkToken = useCallback(() => {
+    const jwt = localStorage.getItem('jwt');
+
+    if (jwt) {
+      getContent(jwt)
+        .then((res) => {
+          const data = res.data;
+          const userData = {
+            _id: data._id,
+            email: data.email
+          };
+          setUserData(userData);
+          handleLogin();
+          navigate('/react-mesto-auth', { replace: true });
+        })
+        .catch((err) => {
+          console.log(`Ошибка в процессе проверки токена пользователя и получения личных данных: ${err}`);
+        })
+    };
+  }, [navigate]);
+
+  useEffect(() => {
+    checkToken();
+  }, [checkToken]);
 
   function toggleBurgerMenu() {
     setIsActiveBurgerMenu(!isActiveBurgerMenu);
@@ -191,6 +229,7 @@ export default function App() {
           <Header
             isActive={isActiveBurgerMenu}
             onActive={toggleBurgerMenu}
+            userData={userData}
           />
         }>
           <Route
@@ -255,7 +294,7 @@ export default function App() {
               </>
             }
           />
-          <Route path='sign-in' element={<Login />} />
+          <Route path='sign-in' element={<Login handleLogin={handleLogin} />} />
           <Route path='sign-up' element={<Register />} />
         </Route>
       </Routes>

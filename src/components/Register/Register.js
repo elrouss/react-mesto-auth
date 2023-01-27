@@ -28,7 +28,10 @@ export default function Register() {
     registerUser(email, password)
       .then(() => {
         navigate('../sign-in', { replace: true });
-      });
+      })
+      .catch((err) => {
+        console.log(`Ошибка в процессе регистрации пользователя на сайте: ${err}`);
+      })
   };
 
   return (
