@@ -3,9 +3,7 @@ import { Outlet, Link, useMatch, useNavigate } from 'react-router-dom';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import logo from '../../images/header__logo_theme_light.svg';
 
-export default function Header({ userData, setIsLoggedIn, isActive, onActive }) {
-  // TODO: Исправить баг, когда исчезают элементы при наличии/отсутствии косой черты в конце url (regExp?)
-  // TODO: ошибка в процессе выхода пользователя из кабинета на мобильном устройстве: остается отрицательный margin (исчезает только при перезагрузке страницы)
+export default function Header({ userData, setIsLoggedIn, isActive, onActive, toggleBurgerMenu }) {
   const windowWidth = useWindowDimensions();
 
   const href = useMatch({ path: `${window.location.pathname}`, end: false });
@@ -14,13 +12,14 @@ export default function Header({ userData, setIsLoggedIn, isActive, onActive }) 
 
   const navigate = useNavigate();
 
-  const burgerMenu = Array(3).fill(<span className="header__burger-line" />);
+  const burgerElement = <span className="header__burger-line" />;
 
   function isDisplayMobileAndRootHref() {
     return windowWidth <= 696 && isRootHref;
   };
 
   function signUserOut() {
+    toggleBurgerMenu();
     localStorage.removeItem('jwt');
     navigate('./sign-in', { replace: true });
     setIsLoggedIn(false);
@@ -66,7 +65,9 @@ export default function Header({ userData, setIsLoggedIn, isActive, onActive }) 
             aria-label="Открытие меню с электронным адресом пользователя и кнопкой выхода из личного кабинета"
             onClick={onActive}
           >
-            {burgerMenu}
+            {burgerElement}
+            {burgerElement}
+            {burgerElement}
           </button>
         }
         {!isDisplayMobileAndRootHref() && renderHeaderMenu()}
