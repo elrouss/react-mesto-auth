@@ -1,4 +1,4 @@
-export default function WelcomeWindowWithForm({ children, heading, isProcessLoading, btnSubmit, btnAriaLabel, onSubmit }) {
+export default function WelcomeWindowWithForm({ children, heading, isProcessLoading, btnSubmit, btnAriaLabel, onSubmit, isValid }) {
   const inputs = [children[0], children[1]];
   const registerLink = children[2];
 
@@ -12,9 +12,10 @@ export default function WelcomeWindowWithForm({ children, heading, isProcessLoad
           {inputs}
         </fieldset>
         <button
-          className="welcome-window__btn-submit"
+          className={`welcome-window__btn-submit ${!isValid && 'welcome-window__btn-submit_disabled'}`}
           type="submit"
           aria-label={btnAriaLabel}
+          disabled={!isValid}
         >
           {isProcessLoading ? 'Подождите...' : btnSubmit}
         </button>

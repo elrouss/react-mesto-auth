@@ -4,5 +4,11 @@
   border: none;
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
+  row-gap: 10px;
+}
+
+@media screen and (max-width: 696px) {
+  .welcome-window__fieldset-user-data {
+    row-gap: 8px;
+  }
 }

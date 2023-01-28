@@ -100,6 +100,7 @@ export default function App() {
   function toggleBurgerMenu() {
     setIsActiveBurgerMenu(!isActiveBurgerMenu);
   };
+  //TODO: переписать функцию под true/false (либо иначе прокидывать в header, иначе переключается margin)
 
   function openInfoTooltip() {
     setIsInfoTooltipOpened(true);

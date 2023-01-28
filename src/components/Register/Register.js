@@ -2,29 +2,18 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import WelcomeWindowWithForm from "../WelcomeWindowWithForm/WelcomeWindowWithForm";
-import InfoTooltip from "../InfoTooltip/InfoTooltip";
+import useFormWithValidation from "../../hooks/useFormWithValidation";
 import { registerUser } from "../../utils/auth";
+import InfoTooltip from "../InfoTooltip/InfoTooltip";
 
 export default function Register({
   setIsProcessLoading, isInfoTooltipOpened, onInfoTooltip, isOpened,
-  popupPackProps: { isProcessLoading, onClose, closePopupsOnOutsideClick }}) {
-    
+  popupPackProps: { isProcessLoading, onClose, closePopupsOnOutsideClick } }) {
+
   const navigate = useNavigate();
+  const { values, errors, isValid, handleChange, resetForm } = useFormWithValidation();
+
   const [isData, setIsData] = useState(false);
-
-  const [formValue, setFormValue] = useState({
-    email: '',
-    password: ''
-  });
-
-  function handleChange(evt) {
-    const { name, value } = evt.target;
-
-    setFormValue({
-      ...formValue,
-      [name]: value
-    });
-  };
 
   useEffect(() => {
     if (isInfoTooltipOpened && isData) {
@@ -41,10 +30,11 @@ export default function Register({
     evt.preventDefault();
     setIsProcessLoading(true);
 
-    const { email, password } = formValue;
+    const { email, password } = values;
     registerUser(email, password)
       .then((res) => {
         setIsProcessLoading(false);
+        resetForm();
 
         if (res) {
           setIsData(true);
@@ -68,26 +58,35 @@ export default function Register({
         btnAriaLabel={'Регистрация на сайте'}
         onSubmit={handleSubmit}
         isProcessLoading={isProcessLoading}
+        isValid={isValid}
       >
+        <div className="welcome-window__input-wrapper">
+          <input
+            className="welcome-window__input"
+            name="email"
+            type="email"
+            placeholder="Email"
+            autoComplete="on"
+            required
+            onChange={handleChange}
+          />
+          <span className="welcome-window__error-msg">{errors?.email && 'Введите адрес электронной почты'}</span>
+        </div>
 
-        <input
-          className="welcome-window__input"
-          name="email"
-          type="email"
-          placeholder="Email"
-          autoComplete="on"
-          // required
-          onChange={handleChange}
-        />
-        <input
-          className="welcome-window__input"
-          name="password"
-          type="password"
-          autoComplete="current-password"
-          placeholder="Пароль"
-          // required
-          onChange={handleChange}
-        />
+        <div className="welcome-window__input-wrapper">
+          <input
+            className="welcome-window__input"
+            name="password"
+            type="password"
+            minLength="6"
+            autoComplete="current-password"
+            placeholder="Пароль"
+            required
+            onChange={handleChange}
+          />
+          <span className="welcome-window__error-msg">{errors?.password && 'Пароль должен состоять минимум из 6 симв.'}</span>
+        </div>
+
         <p className="welcome-window__paragraph">Уже зарегистрированы?&nbsp;
           <Link className='welcome-window__link' to='../sign-in'>Войти</Link>
         </p>

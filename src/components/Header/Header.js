@@ -4,6 +4,7 @@ import useWindowDimensions from '../../hooks/useWindowDimensions';
 import logo from '../../images/header__logo_theme_light.svg';
 
 export default function Header({ userData, setIsLoggedIn, isActive, onActive, toggleBurgerMenu }) {
+  // TODO: при перетягивании разрешения с раскрытым меню из mobile в desktop остается отрицательный margin
   const windowWidth = useWindowDimensions();
 
   const href = useMatch({ path: `${window.location.pathname}`, end: false });

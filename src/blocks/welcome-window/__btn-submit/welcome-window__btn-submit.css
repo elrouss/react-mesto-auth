@@ -1,5 +1,5 @@
 .welcome-window__btn-submit {
-  margin: 216px 0 0;
+  margin: 196px 0 0;
   padding: 2px 0 0;
   width: 100%;
   height: 50px;
@@ -19,7 +19,7 @@
 
 @media screen and (max-width: 696px) {
   .welcome-window__btn-submit {
-    margin-top: calc(173px + (43 + 43 * .7) * (100vw - 320px) / 696);
+    margin-top: calc(151px + (45 + 45 * .7) * (100vw - 320px) / 696);
     height: 46px;
     font-size: 16px;
     line-height: calc(19 / 16 * 100%);
