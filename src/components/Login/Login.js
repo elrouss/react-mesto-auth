@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import WelcomeWindowWithForm from "../WelcomeWindowWithForm/WelcomeWindowWithForm";
 import { authorizeUser } from "../../utils/auth";
 
-export default function Login({ handleLogin }) {
+export default function Login({ handleLogin, isProcessLoading, setIsProcessLoading }) {
   const navigate = useNavigate();
 
   const [formValue, setFormValue] = useState({
@@ -25,8 +25,9 @@ export default function Login({ handleLogin }) {
     evt.preventDefault();
 
     const { email, password } = formValue;
-
     if (!email || !password) return;
+
+    setIsProcessLoading(true);
     authorizeUser(email, password)
       .then((jwt) => {
         if (jwt) {
@@ -37,7 +38,10 @@ export default function Login({ handleLogin }) {
       })
       .catch((err) => {
         console.log(`Ошибка в процессе авторизации пользователя на сайте: ${err}`);
-      });
+      })
+      .finally(() => {
+        setIsProcessLoading(false);
+      })
   };
 
   return (
@@ -46,6 +50,7 @@ export default function Login({ handleLogin }) {
       btnSubmit={'Войти'}
       btnAriaLabel={'Авторизация на сайте'}
       onSubmit={handleSubmit}
+      isProcessLoading={isProcessLoading}
     >
 
       <input

@@ -22,7 +22,7 @@ export default function Header({ userData, setIsLoggedIn, isActive, onActive }) 
 
   function signUserOut() {
     localStorage.removeItem('jwt');
-    navigate('./sign-up', { replace: true });
+    navigate('./sign-in', { replace: true });
     setIsLoggedIn(false);
   };
 

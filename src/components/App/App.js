@@ -17,7 +17,6 @@ import Footer from '../Footer/Footer.js';
 
 import PageNotFound from '../PageNotFound/PageNotFound.js';
 
-// import InfoTooltip from '../InfoTooltip/InfoTooltip.js';
 import EditProfilePopup from '../EditProfilePopup/EditProfilePopup.js';
 import EditAvatarPopup from '../EditAvatarPopup/EditAvatarPopup.js';
 import AddPlacePopup from '../AddPlacePopup/AddPlacePopup.js';
@@ -44,6 +43,7 @@ export default function App() {
 
   const [isActiveBurgerMenu, setIsActiveBurgerMenu] = useState(false);
 
+  const [isInfoTooltipOpened, setIsInfoTooltipOpened] = useState(false);
   const [isEditProfilePopupOpened, setEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpened, setAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpened, setEditAvatarPopupOpen] = useState(false);
@@ -101,6 +101,10 @@ export default function App() {
     setIsActiveBurgerMenu(!isActiveBurgerMenu);
   };
 
+  function openInfoTooltip() {
+    setIsInfoTooltipOpened(true);
+  };
+
   function openEditProfilePopup() {
     setEditProfilePopupOpen(true);
   };
@@ -124,6 +128,7 @@ export default function App() {
   };
 
   function closeAllPopups() {
+    setIsInfoTooltipOpened(false);
     setEditProfilePopupOpen(false);
     setAddPlacePopupOpen(false);
     setEditAvatarPopupOpen(false);
@@ -306,8 +311,24 @@ export default function App() {
               </>
             }
           />
-          <Route path='sign-in' element={<Login handleLogin={handleLogin} />} />
-          <Route path='sign-up' element={<Register />} />
+          <Route path='sign-in' element={<Login
+            handleLogin={handleLogin}
+            isProcessLoading={isProcessLoading}
+            setIsProcessLoading={setIsProcessLoading}
+          />
+          }
+          />
+          <Route path='sign-up' element={
+            <Register
+              popupPackProps={popupPackProps}
+
+              setIsProcessLoading={setIsProcessLoading}
+              isInfoTooltipOpened={isInfoTooltipOpened}
+              onInfoTooltip={openInfoTooltip}
+              isOpened={isInfoTooltipOpened}
+            />
+          }
+          />
         </Route>
         <Route path='*' element={<PageNotFound />} />
       </Routes>
