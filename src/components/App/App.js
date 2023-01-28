@@ -24,7 +24,6 @@ import ImagePopup from '../ImagePopup/ImagePopup.js';
 import ConfirmCardDeletionPopup from '../ConfirmCardDeletionPopup/ConfirmCardDeletionPopup.js';
 
 export default function App() {
-  // test (email, password): jfurjeuf@test.ru
   const navigate = useNavigate();
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
