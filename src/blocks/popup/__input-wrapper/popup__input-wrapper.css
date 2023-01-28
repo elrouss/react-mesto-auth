@@ -1,0 +1,12 @@
+.popup__input-wrapper {
+  min-height: 54px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 7px;
+}
+
+@media screen and (max-width: 696px) {
+  .popup__input-wrapper {
+    min-height: 57px;
+  }
+}

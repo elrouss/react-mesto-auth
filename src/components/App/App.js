@@ -246,6 +246,7 @@ export default function App() {
             onActive={toggleBurgerMenu}
             userData={userData}
             setIsLoggedIn={setIsLoggedIn}
+            isActiveBurgerMenu={isActiveBurgerMenu}
             toggleBurgerMenu={toggleBurgerMenu}
           />
         }>
