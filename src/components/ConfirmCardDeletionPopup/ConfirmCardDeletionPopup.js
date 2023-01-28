@@ -1,7 +1,13 @@
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import useFormWithValidation from "../../hooks/useFormWithValidation";
+import { useEffect } from "react";
 
-export default function ConfirmCardDeletionPopup(props) {
-  const { activeCardId, onCardDelete, isOpened, popupPackProps } = props;
+export default function ConfirmCardDeletionPopup({ activeCardId, onCardDelete, isOpened, popupPackProps }) {
+  const { isValid, setIsValid } = useFormWithValidation();
+  
+  useEffect(() => {
+    if (isOpened) setIsValid(true);
+  }, [isOpened]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
@@ -18,7 +24,8 @@ export default function ConfirmCardDeletionPopup(props) {
         formName: "photocardConfirmationDeletion",
         title: "Вы уверены?",
         submitBtn: "Да",
-        submitBtnLoading: "Удаление..."
+        submitBtnLoading: "Удаление...",
+        isPopupValid: isValid
       }}
 
       onSubmit={handleSubmit}

@@ -42,7 +42,7 @@ export default function Login({ handleLogin, isProcessLoading, setIsProcessLoadi
     >
       <div className="welcome-window__input-wrapper">
         <input
-          className="welcome-window__input"
+          className={`welcome-window__input ${errors?.email && 'welcome-window__input_error'}`}
           name="email"
           type="email"
           placeholder="Email"
@@ -50,12 +50,14 @@ export default function Login({ handleLogin, isProcessLoading, setIsProcessLoadi
           required
           onChange={handleChange}
         />
-        <span className="welcome-window__error-msg">{errors?.email && 'Введите адрес электронной почты'}</span>
+        <span className="welcome-window__error-msg">
+          {errors?.email && 'Введите адрес электронной почты'}
+        </span>
       </div>
-      
+
       <div className="welcome-window__input-wrapper">
         <input
-          className="welcome-window__input"
+          className={`welcome-window__input ${errors?.password && 'welcome-window__input_error'}`}
           name="password"
           type="password"
           minLength="6"
@@ -64,7 +66,9 @@ export default function Login({ handleLogin, isProcessLoading, setIsProcessLoadi
           required
           onChange={handleChange}
         />
-        <span className="welcome-window__error-msg">{errors?.password && 'Пароль должен состоять минимум из 6 симв.'}</span>
+        <span className="welcome-window__error-msg">
+          {errors?.password && 'Пароль должен состоять минимум из 6 симв.'}
+        </span>
       </div>
 
     </WelcomeWindowWithForm>

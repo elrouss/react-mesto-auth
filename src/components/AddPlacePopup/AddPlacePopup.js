@@ -1,65 +1,32 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import useFormWithValidation from "../../hooks/useFormWithValidation";
 
-export default function AddPlacePopup(props) {
-  const { onAddPlace, isOpened, popupPackProps } = props;
+export default function AddPlacePopup({ onAddPlace, isOpened, popupPackProps }) {
+  const { values, errors, isValid, handleChange, resetForm } = useFormWithValidation();
 
-  const [name, setName] = useState('');
-  const [link, setLink] = useState('');
-
-  const [isFocusedName, setIsFocusedName] = useState(false);
-  const [isFocusedLink, setIsFocusedLink] = useState(false);
-
-  const newCardNameLength = name && name.length;
-
-  function isNewCardLink(url) {
-    const urlPattern = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-/]))?/;
-    return urlPattern.test(url);
-  };
-
-  function handleNewCardName(evt) {
-    const target = evt.target.value.replace(/^\s/, '');
-    setName(target);
-  };
-
-  function handleNewCardLink(evt) {
-    const target = evt.target.value.replace(/^\s/, '');
-    setLink(target);
-  };
+  useEffect(() => {
+    if (isOpened) resetForm();
+  }, [isOpened, resetForm]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
 
     onAddPlace({
-      name: name.trim().replace(/\s+/g, ' '),
-      link: link.trim()
+      name: values.cardName.trim().replace(/\s+/g, ' '),
+      link: values.cardUrl.trim()
     });
-  };
-
-  useEffect(() => {
-    if (isOpened) {
-      setName('');
-      setLink('');
-    };
-  }, [isOpened]);
-
-  function isInputValueValid(value) {
-    return value >= 1;
-  };
-
-  function isAddPlacePopupValid() {
-    return isInputValueValid(newCardNameLength) && isNewCardLink(link);
   };
 
   return (
     <PopupWithForm
       popupData={{
         classSelector: "add-photocard",
-        classSelectorModifierForm: "popup__form_type_photocards",
         formName: "photocardAdding",
         title: "Новое место",
         submitBtn: "Создать",
-        isPopupValid: isAddPlacePopupValid()
+        isPopupValid: isValid
       }}
 
       onSubmit={handleSubmit}
@@ -67,35 +34,34 @@ export default function AddPlacePopup(props) {
       popupPackProps={popupPackProps}
     >
       <fieldset className="popup__form-fieldset">
-        <input
-          className={`popup__form-field ${(isFocusedName && !isInputValueValid(newCardNameLength)) && 'popup__form-field_type_error'} popup__form-field_type_add-photocard-name`}
-          name="cardName"
-          type="text"
-          placeholder="Название"
-          maxLength="30"
-          required
-          value={name}
-          onChange={handleNewCardName}
-          onFocus={() => setIsFocusedName(true)}
-          onBlur={() => setIsFocusedName(false)}
-        />
-        <span className={`popup__error ${(isFocusedName && !isInputValueValid(newCardNameLength)) && 'popup__error_visible'} photocard-name-error`}>
-          Заполните это поле.
-        </span>
-        <input
-          className={`popup__form-field ${((isFocusedLink && !isNewCardLink(link)) || (!isNewCardLink(link) && link !== '')) && 'popup__form-field_type_error'} popup__form-field_type_add-photocard-link`}
-          name="cardLink"
-          type="url"
-          placeholder="Ссылка на изображение"
-          required
-          value={link}
-          onChange={handleNewCardLink}
-          onFocus={() => setIsFocusedLink(true)}
-          onBlur={() => setIsFocusedLink(false)}
-        />
-        <span className={`popup__error ${((isFocusedLink && !isNewCardLink(link)) || (!isNewCardLink(link) && link !== '')) && 'popup__error_visible'} photocard-url-error`}>
-          Введите URL.
-        </span>
+        <div className="popup__input-wrapper">
+          <input
+            className={`popup__form-field ${errors?.cardName && 'popup__form-field_type_error'}`}
+            name="cardName"
+            type="text"
+            placeholder="Название"
+            minLength="2"
+            maxLength="30"
+            required
+            value={values?.cardName || ''}
+            onChange={handleChange}
+          />
+          <span className="popup__error">{errors?.cardName && 'Текст не должен быть короче 2 и длиннее 30 симв.'}</span>
+        </div>
+
+        <div className="popup__input-wrapper">
+          <input
+            className={`popup__form-field ${errors?.cardUrl && 'popup__form-field_type_error'}`}
+            name="cardUrl"
+            type="url"
+            placeholder="Ссылка на изображение"
+            required
+            value={values?.cardUrl || ''}
+            onChange={handleChange}
+          />
+          <span className="popup__error">{errors?.cardUrl && 'Введите адрес сайта.'}</span>
+        </div>
+
       </fieldset>
     </PopupWithForm>
   );

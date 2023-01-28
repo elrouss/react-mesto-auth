@@ -19,6 +19,7 @@
 @import url(./blocks/welcome-window/__fieldset-user-data/welcome-window__fieldset-user-data.css);
 @import url(./blocks/welcome-window/__input-wrapper/welcome-window__input-wrapper.css);
 @import url(./blocks/welcome-window/__input/welcome-window__input.css);
+@import url(./blocks/welcome-window/__input/_error/welcome-window__input_error.css);
 @import url(./blocks/welcome-window/__error-msg/welcome-window__error-msg.css);
 @import url(./blocks/welcome-window/__btn-submit/welcome-window__btn-submit.css);
 @import url(./blocks/welcome-window/__btn-submit/_disabled/welcome-window__btn-submit_disabled.css);
@@ -77,10 +78,10 @@
 @import url(./blocks/popup/__form/popup__form.css);
 @import url(./blocks/popup/__form/_type/popup__form_type_confirmation-deletion.css);
 @import url(./blocks/popup/__form-fieldset/popup__form-fieldset.css);
+@import url(./blocks/popup/__input-wrapper/popup__input-wrapper.css);
 @import url(./blocks/popup/__form-field/popup__form-field.css);
 @import url(./blocks/popup/__form-field/_type/popup__form-field_type_error.css);
 @import url(./blocks/popup/__error/popup__error.css);
-@import url(./blocks/popup/__error/_visible/popup__error_visible.css);
 @import url(./blocks/popup/__container-image/popup__container-image.css);
 @import url(./blocks/popup/__image/popup__image.css);
 @import url(./blocks/popup/__image-caption/popup__image-caption.css);

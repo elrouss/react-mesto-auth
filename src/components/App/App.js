@@ -100,7 +100,6 @@ export default function App() {
   function toggleBurgerMenu() {
     setIsActiveBurgerMenu(!isActiveBurgerMenu);
   };
-  //TODO: переписать функцию под true/false (либо иначе прокидывать в header, иначе переключается margin)
 
   function openInfoTooltip() {
     setIsInfoTooltipOpened(true);
@@ -247,6 +246,7 @@ export default function App() {
             onActive={toggleBurgerMenu}
             userData={userData}
             setIsLoggedIn={setIsLoggedIn}
+            isActiveBurgerMenu={isActiveBurgerMenu}
             toggleBurgerMenu={toggleBurgerMenu}
           />
         }>

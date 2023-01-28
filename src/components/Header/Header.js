@@ -3,8 +3,7 @@ import { Outlet, Link, useMatch, useNavigate } from 'react-router-dom';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import logo from '../../images/header__logo_theme_light.svg';
 
-export default function Header({ userData, setIsLoggedIn, isActive, onActive, toggleBurgerMenu }) {
-  // TODO: при перетягивании разрешения с раскрытым меню из mobile в desktop остается отрицательный margin
+export default function Header({ userData, setIsLoggedIn, isActive, onActive, isActiveBurgerMenu, toggleBurgerMenu }) {
   const windowWidth = useWindowDimensions();
 
   const href = useMatch({ path: `${window.location.pathname}`, end: false });
@@ -20,7 +19,9 @@ export default function Header({ userData, setIsLoggedIn, isActive, onActive, to
   };
 
   function signUserOut() {
-    toggleBurgerMenu();
+    if (isActiveBurgerMenu) {
+      toggleBurgerMenu();
+    };
     localStorage.removeItem('jwt');
     navigate('./sign-in', { replace: true });
     setIsLoggedIn(false);

@@ -7,7 +7,7 @@ export default function useFormWithValidation() {
 
   const handleChange = evt => {
     const target = evt.target;
-    const {name, value } = target;
+    const { name, value } = target;
 
     setValues({ ...values, [name]: value });
     setErrors({ ...errors, [name]: target.validationMessage });
@@ -23,5 +23,5 @@ export default function useFormWithValidation() {
     [setValues, setErrors, setIsValid]
   );
 
-  return { values, errors, isValid, handleChange, resetForm };
+  return { values, errors, isValid, setValues, handleChange, setIsValid, resetForm };
 };

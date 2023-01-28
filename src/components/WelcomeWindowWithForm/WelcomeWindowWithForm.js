@@ -15,7 +15,7 @@ export default function WelcomeWindowWithForm({ children, heading, isProcessLoad
           className={`welcome-window__btn-submit ${!isValid && 'welcome-window__btn-submit_disabled'}`}
           type="submit"
           aria-label={btnAriaLabel}
-          disabled={!isValid}
+          disabled={!isValid || isProcessLoading}
         >
           {isProcessLoading ? 'Подождите...' : btnSubmit}
         </button>
