@@ -55,7 +55,7 @@
 </div>
 
 
-
+### Ссылка на макет: https://www.figma.com/file/5H3gsn5lIGPwzBPby9jAOo/Sprint-14-RU?node-id=0%3A1.
 ### Ссылка на проект: https://elrouss.github.io/react-mesto-auth/
 ### Данные для входа (email и password): test-acc@test.ru
 <i>* - проект прошел обязательное код-ревью</i>
