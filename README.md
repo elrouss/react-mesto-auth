@@ -57,6 +57,5 @@
 
 
 ### Ссылка на проект: https://elrouss.github.io/react-mesto-auth/
-Данные для входа (email и password): test-acc@test.ru
-<br>
+### Данные для входа (email и password): test-acc@test.ru
 <i>* - проект прошел обязательное код-ревью</i>
