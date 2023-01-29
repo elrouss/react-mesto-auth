@@ -322,11 +322,12 @@ export default function App() {
               </>
             }
           />
-          <Route path='sign-in' element={<Login
-            handleLogin={handleLogin}
-            isProcessLoading={isProcessLoading}
-            setIsProcessLoading={setIsProcessLoading}
-          />
+          <Route path='sign-in' element={
+            <Login
+              handleLogin={handleLogin}
+              isProcessLoading={isProcessLoading}
+              setIsProcessLoading={setIsProcessLoading}
+            />
           }
           />
           <Route path='sign-up' element={

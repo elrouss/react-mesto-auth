@@ -2,8 +2,7 @@ import { useContext } from "react";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-export default function Card(props) {
-  const { card, handlePopup, handleCardLike } = props;
+export default function Card({ card, handlePopup, handleCardLike }) {
   const currentUser = useContext(CurrentUserContext);
 
   const isOwn = card.owner._id === currentUser._id;
