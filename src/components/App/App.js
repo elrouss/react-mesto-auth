@@ -2,9 +2,11 @@ import { useState, useEffect, useCallback } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
 
+import { registerUser } from '../../utils/auth.js';
+import { authorizeUser } from '../../utils/auth.js';
+import { getContent } from '../../utils/auth.js';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 import { api } from '../../utils/api.js';
-import { getContent } from '../../utils/auth.js';
 
 import Login from '../Login/Login.js';
 import Register from '../Register/Register.js';
@@ -17,6 +19,7 @@ import Footer from '../Footer/Footer.js';
 
 import PageNotFound from '../PageNotFound/PageNotFound.js';
 
+import InfoTooltip from '../InfoTooltip/InfoTooltip.js';
 import EditProfilePopup from '../EditProfilePopup/EditProfilePopup.js';
 import EditAvatarPopup from '../EditAvatarPopup/EditAvatarPopup.js';
 import AddPlacePopup from '../AddPlacePopup/AddPlacePopup.js';
@@ -26,6 +29,7 @@ import ConfirmCardDeletionPopup from '../ConfirmCardDeletionPopup/ConfirmCardDel
 export default function App() {
   const navigate = useNavigate();
 
+  const [isRegistrationSuccess, setIsRegistrationSuccess] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [isAppLoading, setIsAppLoading] = useState(false);
@@ -132,14 +136,14 @@ export default function App() {
     setIsImagePopupOpened(true);
   };
 
-  function closeAllPopups() {
+  const closeAllPopups = useCallback(() => {
     setIsInfoTooltipOpened(false);
     setEditProfilePopupOpen(false);
     setAddPlacePopupOpen(false);
     setEditAvatarPopupOpen(false);
     setConfirmationCardDeletionPopupOpened(false);
     setIsImagePopupOpened(false);
-  };
+  }, []);
 
   useEffect(() => {
     if (!isImagePopupOpened) {
@@ -161,6 +165,63 @@ export default function App() {
     closePopupsOnOutsideClick: closePopupsOnOutsideClick,
     isProcessLoading: isProcessLoading
   };
+
+  function handleUserRegistration(data) {
+    setIsProcessLoading(true);
+    const { email, password } = data;
+
+    registerUser(email, password)
+      .then((res) => {
+        if (res) {
+          setIsRegistrationSuccess(true);
+          openInfoTooltip();
+        };
+
+        if (!res) {
+          openInfoTooltip();
+        };
+      })
+      .catch((err) => {
+        console.log(`Ошибка в процессе регистрации пользователя на сайте: ${err}`);
+      })
+      .finally(() => {
+        setIsProcessLoading(false);
+      })
+  };
+
+  useEffect(() => {
+    if (isInfoTooltipOpened && isRegistrationSuccess) {
+      setTimeout(() => {
+        navigate('react-mesto-auth/sign-in', { replace: false });
+        closeAllPopups();
+      }, 1200);
+
+      setTimeout(() => {
+        setIsRegistrationSuccess(false);
+      }, 1500);
+    };
+
+    return () => clearTimeout(setTimeout);
+  }, [isInfoTooltipOpened, isRegistrationSuccess, navigate, closeAllPopups, setIsRegistrationSuccess]);
+
+  function handleUserAuthorization(data) {
+    setIsProcessLoading(true);
+    const { email, password } = data;
+
+    authorizeUser(email, password)
+      .then((jwt) => {
+        if (jwt) {
+          handleLogin();
+          navigate('../', { replace: true });
+        };
+      })
+      .catch((err) => {
+        console.log(`Ошибка в процессе авторизации пользователя на сайте: ${err}`);
+      })
+      .finally(() => {
+        setIsProcessLoading(false);
+      })
+  }
 
   function handleUpdateUser(data) {
     if (data.name === currentUser.name && data.about === currentUser.about) {
@@ -324,26 +385,27 @@ export default function App() {
           />
           <Route path='sign-in' element={
             <Login
-              handleLogin={handleLogin}
+              onAuthorization={handleUserAuthorization}
               isProcessLoading={isProcessLoading}
-              setIsProcessLoading={setIsProcessLoading}
             />
           }
           />
           <Route path='sign-up' element={
             <Register
-              popupPackProps={popupPackProps}
-
-              setIsProcessLoading={setIsProcessLoading}
-              isInfoTooltipOpened={isInfoTooltipOpened}
-              onInfoTooltip={openInfoTooltip}
-              isOpened={isInfoTooltipOpened}
+              onRegistration={handleUserRegistration}
+              isProcessLoading={isProcessLoading}
             />
           }
           />
         </Route>
         <Route path='*' element={<PageNotFound />} />
       </Routes>
+      <InfoTooltip
+        isSuccess={isRegistrationSuccess}
+        isOpened={isInfoTooltipOpened}
+        onClose={closeAllPopups}
+        closePopupsOnOutsideClick={closePopupsOnOutsideClick}
+      />
     </div>
   );
 };
