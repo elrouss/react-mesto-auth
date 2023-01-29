@@ -9,7 +9,7 @@
 @media screen and (max-width: 1279px) {
   .header {
     padding-top: calc(28px + (17 + 17 * .7) * (100vw - 320px) / 1279);
-    padding-bottom: calc(31px + (9 + 9 * .7) * (100vw - 320px) / 1279);
+    padding-bottom: calc(30px + (10 + 10 * .7) * (100vw - 320px) / 1279);
   }
 }
 
