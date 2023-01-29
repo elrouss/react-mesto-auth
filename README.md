@@ -49,13 +49,12 @@
 3. npm start - запустить приложение в режиме разработчика (ввести ссылку [http://localhost:3000](http://localhost:3000) и загрузить приложение в своем браузере). В процессе изменения кода страница будет автоматически перезагружаться
 
 <div align="center">
-  <a href="https://elrouss.github.io/mesto-react/">
-    <img width="370" src="https://user-images.githubusercontent.com/108838349/212988411-b9432993-edba-453d-8a73-334faf7f2f87.png">
-  </a>
-  <a href="https://elrouss.github.io/mesto-react/">
-    <img width="450" src="https://user-images.githubusercontent.com/108838349/212988602-f0b32fcd-88a0-4135-8d3a-81fa35de94a9.png">
+  <a href="https://elrouss.github.io/react-mesto-auth/">
+    <img width="600" src="https://user-images.githubusercontent.com/108838349/215304244-bd854ae2-0066-416d-a516-3b29f4028363.gif">
   </a>
 </div>
+
+
 
 ### Ссылка на проект: https://elrouss.github.io/react-mesto-auth/
 <i>* - проект прошел обязательное код-ревью</i>
