@@ -17,6 +17,5 @@
   .header {
     padding-left: calc(30px + (11.813 + 11.813 * .7) * (100vw - 320px) / 696);
     padding-right: calc(30px + (11.813 + 11.813 * .7) * (100vw - 320px) / 696);
-    border-top: 1px solid rgba(84, 84, 84, .7);
   }
 }

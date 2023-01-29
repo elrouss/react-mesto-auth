@@ -7,3 +7,7 @@
 .page.active {
   transform: translateY(142px);
 }
+
+.page.active > .header {
+  border-top: 1px solid rgba(84, 84, 84, .7);
+}
