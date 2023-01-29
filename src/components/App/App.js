@@ -28,6 +28,7 @@ export default function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const [isAppLoading, setIsAppLoading] = useState(false);
   const [isPageLoading, setIsPageLoading] = useState(false);
   const [isProcessLoading, setIsProcessLoading] = useState(false);
 
@@ -50,6 +51,35 @@ export default function App() {
   const [isImagePopupOpened, setIsImagePopupOpened] = useState(false);
   const [isConfirmationCardDeletionPopupOpened, setConfirmationCardDeletionPopupOpened] = useState(false);
 
+  const checkToken = useCallback(() => {
+    const jwt = localStorage.getItem('jwt');
+
+    if (jwt) {
+      setIsAppLoading(true);
+      getContent(jwt)
+        .then((res) => {
+          const data = res.data;
+          const userData = {
+            _id: data._id,
+            email: data.email
+          };
+          setUserData(userData);
+          handleLogin();
+          navigate('/react-mesto-auth', { replace: true });
+        })
+        .catch((err) => {
+          console.log(`Ошибка в процессе проверки токена пользователя и получения личных данных: ${err}`);
+        })
+        .finally(() => {
+          setIsAppLoading(false);
+        })
+    };
+  }, [navigate]);
+
+  useEffect(() => {
+    checkToken();
+  }, [checkToken]);
+
   useEffect(() => {
     if (isLoggedIn) {
       setIsPageLoading(true);
@@ -71,31 +101,6 @@ export default function App() {
   function handleLogin() {
     setIsLoggedIn(true);
   };
-
-  const checkToken = useCallback(() => {
-    const jwt = localStorage.getItem('jwt');
-
-    if (jwt) {
-      getContent(jwt)
-        .then((res) => {
-          const data = res.data;
-          const userData = {
-            _id: data._id,
-            email: data.email
-          };
-          setUserData(userData);
-          handleLogin();
-          navigate('/react-mesto-auth', { replace: true });
-        })
-        .catch((err) => {
-          console.log(`Ошибка в процессе проверки токена пользователя и получения личных данных: ${err}`);
-        })
-    };
-  }, [navigate]);
-
-  useEffect(() => {
-    checkToken();
-  }, [checkToken]);
 
   function toggleBurgerMenu() {
     setIsActiveBurgerMenu(!isActiveBurgerMenu);
@@ -235,6 +240,10 @@ export default function App() {
       .finally(() => {
         setIsProcessLoading(false);
       })
+  };
+
+  if (isAppLoading) {
+    return null;
   };
 
   return (
