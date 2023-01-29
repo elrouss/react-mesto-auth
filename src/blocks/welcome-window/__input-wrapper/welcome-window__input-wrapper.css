@@ -1,0 +1,13 @@
+.welcome-window__input-wrapper {
+  min-height: 47px;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3px;
+}
+
+@media screen and (max-width: 696px) {
+  .welcome-window__input-wrapper {
+    min-height: 49px;
+  }
+}

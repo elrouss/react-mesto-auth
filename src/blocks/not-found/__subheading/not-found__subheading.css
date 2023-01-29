@@ -1,0 +1,12 @@
+.not-found__subheading {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 800px) {
+  .not-found__subheading {
+    font-size: calc(17px + (4 + 4 * .7) * (100vw - 320px) / 800);
+    line-height: calc(21 / 17 * 100%);
+  }
+}

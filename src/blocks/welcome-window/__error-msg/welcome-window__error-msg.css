@@ -1,0 +1,13 @@
+.welcome-window__error-msg {
+  color: #e13939;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: calc(15 / 12 * 100%);
+}
+
+@media screen and (max-width: 696px) {
+  .welcome-window__error-msg {
+    font-size: 11px;
+    line-height: calc(19 / 11 * 100%);
+  }
+}

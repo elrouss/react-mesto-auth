@@ -1,10 +1,9 @@
 .page {
   max-width: 880px;
-  height: 100%;
-  margin: 0 auto;
-  background-color: #000;
-  color: #fff;
-  font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
-  font-weight: 900;
-  font-style: normal;
+  width: 100%;
+  transition: transform .25s ease;
+}
+
+.page.active {
+  transform: translateY(142px);
 }

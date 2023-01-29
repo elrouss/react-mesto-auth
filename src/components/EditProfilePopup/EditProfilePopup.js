@@ -1,70 +1,40 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+import useFormWithValidation from "../../hooks/useFormWithValidation";
 
-export default function EditProfilePopup(props) {
-  const { onUpdateUser, isOpened, popupPackProps } = props;
-
+export default function EditProfilePopup({ onUpdateUser, isOpened, popupPackProps }) {
   const currentUser = useContext(CurrentUserContext);
 
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-
-  const userNameLength = name && name.length;
-  const userDescriptionLength = description && description.length;
+  const { values, errors, isValid, setValues, handleChange, setIsValid, resetForm } = useFormWithValidation();
 
   useEffect(() => {
     if (isOpened) {
-      setName(currentUser.name);
-      setDescription(currentUser.about);
+      resetForm();
+      setValues({ 'name': currentUser.name, 'about': currentUser.about });
+      setIsValid(true);
     };
-  }, [isOpened, currentUser]);
-
-  function handleChangeName(evt) {
-    const target = evt.target.value.replace(/^\s/, '');
-    setName(target);
-  };
-
-  function handleChangeDescription(evt) {
-    const target = evt.target.value.replace(/^\s/, '');
-    setDescription(target);
-  };
+  }, [isOpened]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
 
     onUpdateUser({
-      name: name.trim().replace(/\s+/g, ' '),
-      about: description.trim().replace(/\s+/g, ' ')
+      name: values.name.trim().replace(/\s+/g, ' '),
+      about: values.about.trim().replace(/\s+/g, ' ')
     });
-  };
-
-  function isInputValueValid(value) {
-    return value >= 2;
-  };
-
-  function isEditProfilePopupValid() {
-    return isInputValueValid(userNameLength) && isInputValueValid(userDescriptionLength);
-  };
-
-  function showErrorMessage(inputValue) {
-    if (inputValue >= 1 && inputValue < 2) {
-      return `Текст должен быть не короче 2 симв. Длина текста сейчас: ${inputValue} символ.`
-    };
-
-    return 'Заполните это поле.';
   };
 
   return (
     <PopupWithForm
       popupData={{
         classSelector: "edit-profile",
-        classSelectorModifierForm: "popup__form_type_profile",
         formName: "profileInfoEditor",
         title: "Редактировать профиль",
         submitBtn: "Сохранить",
-        isPopupValid: isEditProfilePopupValid()
+        isPopupValid: isValid
       }}
 
       onSubmit={handleSubmit}
@@ -72,32 +42,39 @@ export default function EditProfilePopup(props) {
       popupPackProps={popupPackProps}
     >
       <fieldset className="popup__form-fieldset">
-        <input
-          className={`popup__form-field ${!isInputValueValid(userNameLength) && 'popup__form-field_type_error'} popup__form-field_type_profile-name`}
-          name="userName"
-          type="text"
-          placeholder="Имя"
-          maxLength="40"
-          required
-          value={name || ''}
-          onChange={handleChangeName}
-        />
-        <span className={`popup__error ${!isInputValueValid(userNameLength) && 'popup__error_visible'} input-name-error`}>
-          {showErrorMessage(userNameLength)}
-        </span>
-        <input
-          className={`popup__form-field ${!isInputValueValid(userDescriptionLength) && 'popup__form-field_type_error'} popup__form-field_type_profile-job`}
-          name="userAbout"
-          type="text"
-          placeholder="О себе"
-          maxLength="200"
-          required
-          value={description || ''}
-          onChange={handleChangeDescription}
-        />
-        <span className={`popup__error ${!isInputValueValid(userDescriptionLength) && 'popup__error_visible'} input-job-error`}>
-          {showErrorMessage(userDescriptionLength)}
-        </span>
+        <div className="popup__input-wrapper">
+          <input
+            className={`popup__form-field ${errors?.name && 'popup__form-field_type_error'}`}
+            name="name"
+            type="text"
+            placeholder="Имя"
+            minLength="2"
+            maxLength="40"
+            required
+            value={values?.name || ''}
+            onChange={handleChange}
+          />
+          <span className="popup__error">
+            {errors?.name && 'Текст не должен быть короче 2 и длиннее 40 симв.'}
+          </span>
+        </div>
+
+        <div className="popup__input-wrapper">
+          <input
+            className={`popup__form-field ${errors?.about && 'popup__form-field_type_error'}`}
+            name="about"
+            type="text"
+            placeholder="О себе"
+            minLength="2"
+            maxLength="40"
+            required
+            value={values?.about || ''}
+            onChange={handleChange}
+          />
+          <span className="popup__error">
+            {errors?.about && 'Текст не должен быть короче 2 и длиннее 40 симв.'}
+          </span>
+        </div>
       </fieldset>
     </PopupWithForm>
   );

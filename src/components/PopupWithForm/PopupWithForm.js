@@ -16,9 +16,17 @@ export default function PopupWithForm({ popupData, ...props }) {
     <div className={`popup popup_type_${popupData.classSelector} ${isOpened && 'popup_opened'}`} onClick={closePopupsOnOutsideClick}>
       <div className="popup__container">
         <h3 className="popup__title">{popupData.title}</h3>
-        <form name={popupData.formName} className={`popup__form ${popupData.classSelectorModifierForm}`} noValidate onSubmit={onSubmit} >
+        <form
+          className={`popup__form ${popupData.classSelectorModifierForm}`}
+          name={popupData.formName}
+          onSubmit={onSubmit}
+          noValidate
+        >
           {children}
-          <button type="submit" className={`popup__submit-button ${popupData.isPopupValid === false && 'popup__submit-button_disabled'} ${popupData.classSelectorModifierSubmitBtn}`} disabled={popupData.isPopupValid === false || isProcessLoading}>
+          <button
+            className={`popup__submit-button ${!popupData.isPopupValid && 'popup__submit-button_disabled'} ${popupData.classSelectorModifierSubmitBtn}`}
+            type="submit"
+            disabled={!popupData.isPopupValid || isProcessLoading}>
             {handleBtnText()}
           </button>
         </form>

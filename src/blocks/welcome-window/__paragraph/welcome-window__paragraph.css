@@ -1,0 +1,9 @@
+.welcome-window__paragraph {
+  margin: 16px 0 0;
+}
+
+@media screen and (max-width: 696px) {
+  .welcome-window__paragraph {
+    margin-top: 21px;
+  }
+}

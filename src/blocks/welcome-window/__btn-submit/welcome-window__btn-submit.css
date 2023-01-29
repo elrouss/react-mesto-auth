@@ -1,0 +1,27 @@
+.welcome-window__btn-submit {
+  margin: 196px 0 0;
+  padding: 2px 0 0;
+  width: 100%;
+  height: 50px;
+  border-radius: 2px;
+  border: none;
+  background-color: #fff;
+  color: #000;
+  font-size: 18px;
+  line-height: calc(22 / 18 * 100%);
+  cursor: pointer;
+  transition: opacity .5s ease;
+}
+
+.welcome-window__btn-submit:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 696px) {
+  .welcome-window__btn-submit {
+    margin-top: calc(151px + (45 + 45 * .7) * (100vw - 320px) / 696);
+    height: 46px;
+    font-size: 16px;
+    line-height: calc(19 / 16 * 100%);
+  }
+}

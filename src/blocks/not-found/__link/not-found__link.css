@@ -1,0 +1,26 @@
+.not-found__link {
+  width: 358px;
+  height: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  background-color: #fff;
+  color: #000;
+  font-size: 18px;
+  line-height: calc(22 / 18 * 100%);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .4s ease;
+}
+
+.not-found__link:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 800px) {
+  .not-found__link {
+    width: calc(282px + (76 + 76 * .7) * (100vw - 320px) / 800);
+  }
+}

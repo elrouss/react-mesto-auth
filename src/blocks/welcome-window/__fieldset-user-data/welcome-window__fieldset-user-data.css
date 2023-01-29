@@ -1,0 +1,14 @@
+.welcome-window__fieldset-user-data {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+@media screen and (max-width: 696px) {
+  .welcome-window__fieldset-user-data {
+    row-gap: 8px;
+  }
+}

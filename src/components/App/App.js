@@ -1,13 +1,21 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 import { api } from '../../utils/api.js';
+import { getContent } from '../../utils/auth.js';
+
+import Login from '../Login/Login.js';
+import Register from '../Register/Register.js';
 
 import Preloader from '../Preloader/Preloader.js';
 
 import Header from '../Header/Header.js';
 import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
+
+import PageNotFound from '../PageNotFound/PageNotFound.js';
 
 import EditProfilePopup from '../EditProfilePopup/EditProfilePopup.js';
 import EditAvatarPopup from '../EditAvatarPopup/EditAvatarPopup.js';
@@ -16,35 +24,91 @@ import ImagePopup from '../ImagePopup/ImagePopup.js';
 import ConfirmCardDeletionPopup from '../ConfirmCardDeletionPopup/ConfirmCardDeletionPopup.js';
 
 export default function App() {
-  const [isEditProfilePopupOpened, setEditProfilePopupOpen] = useState(false);
-  const [isAddPlacePopupOpened, setAddPlacePopupOpen] = useState(false);
-  const [isEditAvatarPopupOpened, setEditAvatarPopupOpen] = useState(false);
-  const [isConfirmationCardDeletionPopupOpened, setConfirmationCardDeletionPopupOpened] = useState(false);
+  const navigate = useNavigate();
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const [isAppLoading, setIsAppLoading] = useState(false);
   const [isPageLoading, setIsPageLoading] = useState(false);
   const [isProcessLoading, setIsProcessLoading] = useState(false);
 
+  const [currentUser, setCurrentUser] = useState({});
+  const [userData, setUserData] = useState({
+    _id: '',
+    email: ''
+  });
+
   const [selectedCard, setSelectedCard] = useState({});
   const [activeCardId, setActiveCardId] = useState('');
-
-  const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
 
-  useEffect(() => {
-    setIsPageLoading(true);
+  const [isActiveBurgerMenu, setIsActiveBurgerMenu] = useState(false);
 
-    Promise.all([api.getUserInfo(), api.getPhotocards()])
-      .then(([user, cards]) => {
-        setCurrentUser(user);
-        setCards(cards);
-      })
-      .catch((err) => {
-        console.log(`Ошибка в процессе загрузки данных пользователя и галереи карточек: ${err}`);
-      })
-      .finally(() => {
-        setIsPageLoading(false);
-      })
-  }, []);
+  const [isInfoTooltipOpened, setIsInfoTooltipOpened] = useState(false);
+  const [isEditProfilePopupOpened, setEditProfilePopupOpen] = useState(false);
+  const [isAddPlacePopupOpened, setAddPlacePopupOpen] = useState(false);
+  const [isEditAvatarPopupOpened, setEditAvatarPopupOpen] = useState(false);
+  const [isImagePopupOpened, setIsImagePopupOpened] = useState(false);
+  const [isConfirmationCardDeletionPopupOpened, setConfirmationCardDeletionPopupOpened] = useState(false);
+
+  const checkToken = useCallback(() => {
+    const jwt = localStorage.getItem('jwt');
+
+    if (jwt) {
+      setIsAppLoading(true);
+      getContent(jwt)
+        .then((res) => {
+          const data = res.data;
+          const userData = {
+            _id: data._id,
+            email: data.email
+          };
+          setUserData(userData);
+          handleLogin();
+          navigate('/react-mesto-auth', { replace: true });
+        })
+        .catch((err) => {
+          console.log(`Ошибка в процессе проверки токена пользователя и получения личных данных: ${err}`);
+        })
+        .finally(() => {
+          setIsAppLoading(false);
+        })
+    };
+  }, [navigate]);
+
+  useEffect(() => {
+    checkToken();
+  }, [checkToken]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      setIsPageLoading(true);
+
+      Promise.all([api.getUserInfo(), api.getPhotocards()])
+        .then(([user, cards]) => {
+          setCurrentUser(user);
+          setCards(cards);
+        })
+        .catch((err) => {
+          console.log(`Ошибка в процессе загрузки данных пользователя и галереи карточек: ${err}`);
+        })
+        .finally(() => {
+          setIsPageLoading(false);
+        })
+    };
+  }, [isLoggedIn]);
+
+  function handleLogin() {
+    setIsLoggedIn(true);
+  };
+
+  function toggleBurgerMenu() {
+    setIsActiveBurgerMenu(!isActiveBurgerMenu);
+  };
+
+  function openInfoTooltip() {
+    setIsInfoTooltipOpened(true);
+  };
 
   function openEditProfilePopup() {
     setEditProfilePopupOpen(true);
@@ -65,24 +129,32 @@ export default function App() {
 
   function handleCardClick(cardData) {
     setSelectedCard(cardData);
+    setIsImagePopupOpened(true);
   };
 
-  const closeAllPopups = useCallback(() => {
+  function closeAllPopups() {
+    setIsInfoTooltipOpened(false);
     setEditProfilePopupOpen(false);
     setAddPlacePopupOpen(false);
     setEditAvatarPopupOpen(false);
     setConfirmationCardDeletionPopupOpened(false);
+    setIsImagePopupOpened(false);
+  };
 
-    setSelectedCard({});
-  }, []);
+  useEffect(() => {
+    if (!isImagePopupOpened) {
+      setTimeout(() => setSelectedCard({}), 400);
+    };
+  }, [isImagePopupOpened]);
 
-  const closePopupsOnOutsideClick = useCallback((evt) => {
+  function closePopupsOnOutsideClick(evt) {
     const target = evt.target;
+    const checkSelector = selector => target.classList.contains(selector);
 
-    if (target.classList.contains('popup_opened') || target.classList.contains('popup__closing-button')) {
+    if (checkSelector('popup_opened') || checkSelector('popup__closing-button')) {
       closeAllPopups();
     };
-  }, [closeAllPopups]);
+  };
 
   const popupPackProps = {
     onClose: closeAllPopups,
@@ -170,64 +242,107 @@ export default function App() {
       })
   };
 
+  if (isAppLoading) {
+    return null;
+  };
+
   return (
-    <>
-      {isPageLoading
-        ? <Preloader />
-        : <>
-          <Header />
-
-          <CurrentUserContext.Provider value={currentUser}>
-            <Main
-              onEditProfile={openEditProfilePopup}
-              onAddPlace={openAddPlacePopup}
-              onEditAvatar={openEditAvatarPopup}
-              onConfirmationCardDeletion={openConfirmationCardDeletionPopup}
-              onCardClick={handleCardClick}
-
-              cards={cards}
-              onCardLike={handleCardLike}
-            />
-          </CurrentUserContext.Provider>
-
-          <Footer />
-
-          <CurrentUserContext.Provider value={currentUser}>
-            <EditProfilePopup
-              onUpdateUser={handleUpdateUser}
-              isOpened={isEditProfilePopupOpened}
-              popupPackProps={popupPackProps}
-            />
-
-            <EditAvatarPopup
-              onUpdateAvatar={handleUpdateAvatar}
-              isOpened={isEditAvatarPopupOpened}
-              popupPackProps={popupPackProps}
-            />
-
-            <AddPlacePopup
-              onAddPlace={handleAddPlaceSubmit}
-              isOpened={isAddPlacePopupOpened}
-              popupPackProps={popupPackProps}
-            />
-
-            <ConfirmCardDeletionPopup
-              activeCardId={activeCardId}
-
-              onCardDelete={handleCardDelete}
-              isOpened={isConfirmationCardDeletionPopupOpened}
-              popupPackProps={popupPackProps}
-            />
-          </CurrentUserContext.Provider>
-
-          <ImagePopup
-            card={selectedCard}
-
-            onClose={closeAllPopups}
-            closePopupsOnOutsideClick={closePopupsOnOutsideClick}
+    <div className={`page ${isActiveBurgerMenu && 'active'}`}>
+      <Routes>
+        <Route path='react-mesto-auth/' element={
+          <Header
+            isActive={isActiveBurgerMenu}
+            onActive={toggleBurgerMenu}
+            userData={userData}
+            setIsLoggedIn={setIsLoggedIn}
+            isActiveBurgerMenu={isActiveBurgerMenu}
+            toggleBurgerMenu={toggleBurgerMenu}
           />
-        </>
-      }
-    </>
+        }>
+          <Route
+            index
+            element={
+              <>
+                <ProtectedRoute isLoggedIn={isLoggedIn} />
+                {isPageLoading
+                  ? <Preloader />
+                  : <>
+                    <CurrentUserContext.Provider value={currentUser}>
+                      <Main
+                        onEditProfile={openEditProfilePopup}
+                        onAddPlace={openAddPlacePopup}
+                        onEditAvatar={openEditAvatarPopup}
+                        onConfirmationCardDeletion={openConfirmationCardDeletionPopup}
+                        onCardClick={handleCardClick}
+
+                        cards={cards}
+                        onCardLike={handleCardLike}
+                      />
+                    </CurrentUserContext.Provider>
+
+                    <Footer />
+
+                    <CurrentUserContext.Provider value={currentUser}>
+                      <EditProfilePopup
+                        onUpdateUser={handleUpdateUser}
+                        isOpened={isEditProfilePopupOpened}
+                        popupPackProps={popupPackProps}
+                      />
+
+                      <EditAvatarPopup
+                        onUpdateAvatar={handleUpdateAvatar}
+                        isOpened={isEditAvatarPopupOpened}
+                        popupPackProps={popupPackProps}
+                      />
+
+                      <AddPlacePopup
+                        onAddPlace={handleAddPlaceSubmit}
+                        isOpened={isAddPlacePopupOpened}
+                        popupPackProps={popupPackProps}
+                      />
+
+                      <ConfirmCardDeletionPopup
+                        activeCardId={activeCardId}
+
+                        onCardDelete={handleCardDelete}
+                        isOpened={isConfirmationCardDeletionPopupOpened}
+                        popupPackProps={popupPackProps}
+                      />
+                    </CurrentUserContext.Provider>
+
+                    <ImagePopup
+                      card={selectedCard}
+
+                      isImagePopupOpened={isImagePopupOpened}
+                      onClose={closeAllPopups}
+                      closePopupsOnOutsideClick={closePopupsOnOutsideClick}
+                    />
+                  </>
+                }
+              </>
+            }
+          />
+          <Route path='sign-in' element={<Login
+            handleLogin={handleLogin}
+            isProcessLoading={isProcessLoading}
+            setIsProcessLoading={setIsProcessLoading}
+          />
+          }
+          />
+          <Route path='sign-up' element={
+            <Register
+              popupPackProps={popupPackProps}
+
+              setIsProcessLoading={setIsProcessLoading}
+              isInfoTooltipOpened={isInfoTooltipOpened}
+              onInfoTooltip={openInfoTooltip}
+              isOpened={isInfoTooltipOpened}
+            />
+          }
+          />
+        </Route>
+        <Route path='*' element={<PageNotFound />} />
+      </Routes>
+    </div>
   );
 };

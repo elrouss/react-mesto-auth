@@ -1,0 +1,12 @@
+.header__data_display_mobile {
+  margin-top: -101px;
+  margin-bottom: 38px;
+  flex-direction: column;
+  column-gap: 0;
+  row-gap: 11px;
+}
+
+.header__data_display_mobile > .header__btn {
+  font-size: 18px;
+  line-height: calc(22 / 18 * 100%);
+}
