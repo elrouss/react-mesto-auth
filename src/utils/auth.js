@@ -1,4 +1,3 @@
-// test (email, password): test-account@test.ru
 const BASE_URL = 'https://auth.nomoreparties.co';
 
 export function registerUser(email, password) {
