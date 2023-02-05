@@ -9,9 +9,22 @@
 ## Описание проекта
 Данная проектная работа составлена в рамках образовательной программы <a href="https://practicum.yandex.ru/">Яндекс Практикума</a>. Проект представляет собой <a href="">продолжение</a> портирования на "React" адаптивного приложения (SPA) с профилем пользователя и фотокарточками, <a href="https://github.com/elrouss/mesto">изначально написанного</a> на нативных технологиях: HTML5, CSS3 и JavaScript. В сравнении с предыдущей работой в данном проекте расширен функционал, добавляющий возможность регистрации и авторизации пользователей на сайте в своем личном кабинете
 
-## Методология и процесс создания
-Работа выполнена в 1 этап:
+<h4>Ссылка на макет: https://www.figma.com/file/5H3gsn5lIGPwzBPby9jAOo/Sprint-14-RU?node-id=0%3A1
+<br>
+Ссылка на проект: https://elrouss.github.io/react-mesto-auth/</h4>
+
+## Методология, процесс создания, проблемы и их решение
+Работа выполнена в <b>1 этап</b>:
 1. Верстка дополнительных компонентов (стартовых окон с формами регистрации и авторизации пользователей) и элементов (гамбургер-меню, кнопка выхода из личного кабинета), написание функционала (с применением функциональной парадигмы программирования)
+<p><b>Задачи и проблемы:</b></p>
+1. Определение компонентов, общих для нескольких страниц и перерисовка элементов
+<p>
+<b>Решение:</b>выделено<b>2</b> компонента - <b><a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Header/Header.js">Header</a></b> и <b><a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/WelcomeWindowWithForm/WelcomeWindowWithForm.js">WelcomeWindowWithForm</a></b>. В первом из них для перерисовки элемента (ссылки на страницу авторизации/регистрации, кнопки выхода из личного кабинета, бургерного меню) написаны функции, которые отслеживают <b>endpoint</b> открытого у пользователя url, а также <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/hooks/useWindowDimensions.js">разрешение экрана</a>. Второй компонент сделан по типу <b><a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/PopupWithForm/PopupWithForm.js">PopupWithForm</a></b>, в который в свою очередь вставляются <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Register/Register.js">Register</a> и <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Login/Login.js">Login</a>. Такое решение упростило написание логики валидации форм
+<br>
+2. Написать кастомный хук для валидации форм
+<br>
+<b>Решение:</b>в <a href="https://github.com/elrouss/mesto-react">предыдущем</a> проекте была написана валидация форм, 
+</p>
 
 ## Функционал
 - Адаптивный интерфейс <b><i>(в т. ч. новых компонентов и элементов)</i></b>
@@ -56,7 +69,6 @@
 </div>
 
 
-### Ссылка на макет: https://www.figma.com/file/5H3gsn5lIGPwzBPby9jAOo/Sprint-14-RU?node-id=0%3A1.
-### Ссылка на проект: https://elrouss.github.io/react-mesto-auth/
+
 ### Данные для входа (email и password): test-acc@test.ru
 <i>* - проект прошел обязательное код-ревью</i>
