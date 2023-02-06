@@ -58,7 +58,12 @@
   </a>
 </details>
 
-- Регистрация и авторизация пользователей
+<details>
+  <summary>Регистрация и авторизация пользователей</summary>
+  <a href="https://elrouss.github.io/react-mesto-auth/">
+    <img width="500" src="https://user-images.githubusercontent.com/108838349/216912837-de6a7d00-24fb-49b9-8e65-7982180eb2c5.gif" alt="Гиф с демонстрацией регистрации и авторизации пользователей">
+  </a>
+</details>
 
 <details>
   <summary>Редактирование данных пользователя</summary>
@@ -95,13 +100,47 @@
   </a>
 </details>
 
+<details>
+  <summary>Модальное окно успешной/неудачной регистрации на сайте</summary>
+  <a href="https://elrouss.github.io/react-mesto-auth/">
+    <img width="500" src="https://user-images.githubusercontent.com/108838349/216910166-40745d73-2086-45ec-a348-306336499426.gif" alt="Гиф с демонстрацией модального окна успешной/неудачной регистрации на сайте">
+  </a>
+</details>
 
-- Модальное окно успешной/неудачной регистрации на сайте
-- Модальное окно с увеличенной фотографией карточки
-- Открытие и закрытие модальных окон (по кнопке, <b><i>оверлею</i></b> и <b><i>клавише "Escape"</i></b>)
-- <b><i>Спиннеры загрузки</i></b>
-- <b><i>Валидация форм</i></b>
-- <b><i>Окно предварительной загрузки страницы</i></b>
+<details>
+  <summary>Модальное окно с увеличенной фотографией карточки</summary>
+  <a href="https://elrouss.github.io/react-mesto-auth/">
+    <img width="500" src="https://user-images.githubusercontent.com/108838349/216910652-a8a9272c-1e87-49e0-b983-93c3952b88e8.gif" alt="Гиф с демонстрацией модального окна с увеличенной фотографией карточки">
+  </a>
+</details>
+
+<details>
+  <summary>Открытие и закрытие модальных окон (по кнопке, <b><i>оверлею</i></b> и <b><i>клавише "Escape"</i></b>)</summary>
+  <a href="https://elrouss.github.io/react-mesto-auth/">
+    <img width="500" src="https://user-images.githubusercontent.com/108838349/216910652-a8a9272c-1e87-49e0-b983-93c3952b88e8.gif" alt="Гиф с демонстрацией открытия и закрытия модального окна">
+  </a>
+</details>
+
+<details>
+  <summary><b><i>Спиннеры загрузки</i></b></summary>
+  <a href="https://elrouss.github.io/react-mesto-auth/">
+    <img width="500" src="https://user-images.githubusercontent.com/108838349/216848611-c9f96a5e-e87f-4755-8fe9-50592c0a62b1.gif" alt="Гиф с демонстрацией спиннера загрузки на примере модального окна с обновлением аватара">
+  </a>
+</details>
+
+<details>
+  <summary><b><i>Валидация форм</i></b></summary>
+  <a href="https://elrouss.github.io/react-mesto-auth/">
+    <img width="500" src="https://user-images.githubusercontent.com/108838349/216848611-c9f96a5e-e87f-4755-8fe9-50592c0a62b1.gif" alt="Гиф с демонстрацией валидации формы на примере модального окна с обновлением аватара">
+  </a>
+</details>
+
+<details>
+  <summary><b><i><b><i>Окно предварительной загрузки страницы</i></b></i></b></summary>
+  <a href="https://elrouss.github.io/react-mesto-auth/">
+    <img width="500" src="https://user-images.githubusercontent.com/108838349/216913189-b1a3c13c-1f28-4291-856e-a43fa92ce29f.gif" alt="Гиф с демонстрацией окна предварительной загрузки страницы">
+  </a>
+</details>
                                                                                                
 <details><summary><b><i>Страница 404</i></b></summary>
   <a href="https://elrouss.github.io/react-mesto-auth/">
