@@ -15,6 +15,8 @@
 
 <i>* - проект прошел код-ревью</i>
 
+<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22">в начало</a>)</div>
+
 ## Стек технологий
 <span>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="Иконка React">
@@ -22,6 +24,8 @@
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="Иконка CSS3">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="Иконка HTML5">
 </span>
+
+<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22">в начало</a>)</div>
 
 ## Установка, запуск и эксплуатация приложения
 1. `https://github.com/elrouss/react-mesto-auth.git` - клонировать репозиторий
@@ -35,6 +39,8 @@
 <p>
   <b>NB!!</b> На данном этапе не настроена отрисовка ошибок при попытке регистрации пользователя с ранее зарегистрированным электронным адресом, неправильном вводе электронного адреса и/или пароля и т.п. Эти ошибки можно посмотреть в <b>консоли разработчика</b> во вкладке <b>&laquo;Network&raquo;</b> (ответ с сервера будет выделен красным цветом)
 </p>
+
+<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22">в начало</a>)</div>
 
 ## Методология, процесс создания, проблемы и их решение
 Работа выполнена в <b>1 этап</b>:
@@ -52,6 +58,8 @@
 
 <br>
 <b>Решение:</b>в <a href="https://github.com/elrouss/mesto-react">предыдущем</a> проекте была написана валидация форм, 
+
+<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22">в начало</a>)</div>
 
 ## Функционал
 <details>
@@ -154,9 +162,12 @@
 <br>
 <b><i>* - жирным курсивом выделен дополнительный функционал, не входящий в обязательный перечень требований для получения зачета по проектной работе</i></b>
 
+<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22">в начало</a>)</div>
 
 ## Планы по улучшению
 - Оптимизация лишних ререндеров
 - Вывод в модальном окне после неудачной попытки регистрации/авторизации текста ошибок ("Пользователь с таким электронным адресом уже зарегистрирован", "Неправильный электронный адрес/пароль" и проч.)
 - Добавление автоматического обновления галереи карточек
 - Добавление функции сабмита форм нажатием на клавишу "Enter" (в настоящий момент работает только в случае клика пользоватем по полю формы)
+
+<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22">в начало</a>)</div>
