@@ -6,7 +6,22 @@
   </a>
 </div>
 
-## Описание проекта
+<details>
+  <summary>Оглавление</summary>
+  <ol>
+    <li><a href="">Описание проекта</a></li>
+    <li><a href="">Стек технологий</a></li>
+    <li><a href="">Установка, запуск и эксплуатация приложения</a></li>
+    <li><a href="">Процесс создания</a></li>
+    <ul>
+      <li><a href="">Основные задачи, проблемы и их решение</a></li>
+    </ul>
+    <li><a href="">Функционал</a></li>
+    <li><a href="">Планы по улучшению</a></li>
+  </ol>
+</details>
+
+## 1. Описание проекта
 Данная проектная работа выполнена в рамках образовательной программы <a href="https://practicum.yandex.ru/">Яндекс Практикума</a>. Проект представляет собой <a href="">продолжение</a> портирования на "React" адаптивного приложения (SPA) с профилем пользователя и фотокарточками, <a href="https://github.com/elrouss/mesto">изначально написанного</a> на нативных технологиях: HTML5, CSS3 и JavaScript. В сравнении с предыдущей работой в данном проекте добавлен функционал регистрации и авторизации пользователей на сайте в своем личном кабинете
 
 <h4>Ссылка на макет: https://www.figma.com/file/5H3gsn5lIGPwzBPby9jAOo/Sprint-14-RU?node-id=0%3A1
@@ -17,7 +32,7 @@
 
 <div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22">в начало</a>)</div>
 
-## Стек технологий
+## 2. Стек технологий
 <span>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="Иконка React">
   <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" alt="Иконка React Router">
@@ -27,41 +42,46 @@
 
 <div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22">в начало</a>)</div>
 
-## Установка, запуск и эксплуатация приложения
+## 3. Установка, запуск и эксплуатация приложения
 1. `https://github.com/elrouss/react-mesto-auth.git` - клонировать репозиторий
 2. `npm i` - установить зависимости
-3. `npm start` - запустить приложение в режиме разработчика (ввести ссылку [http://localhost:3000](http://localhost:3000) и загрузить приложение в браузере)
+3. `npm start` - запустить приложение в режиме разработчика (в браузере ввести ссылку [http://localhost:3000](http://localhost:3000), если приложение не открылось там автоматически)
 4. Для входа в личный кабинет приложения пользователю требуется <b>зарегистрироваться</b> (`https://elrouss.github.io/react-mesto-auth/sign-up`) и пройти <b>авторизацию</b> (`https://elrouss.github.io/react-mesto-auth/sign-in`). Можно воспользоваться уже зарегистрированным аккаунтом: <b>email</b> - `test-acc@test.ru`, <b>пароль</b> - `test-acc@test.ru`
 5. При авторизации в локальном хранилище сохраняется токен пользователя, который при закрытии вкладки с приложением и возвращении позволяет оставаться авторизованным на сайте. Он удаляется после нажатия на кнопку выхода из личного кабинета
 <p>
   <b>NB!</b> В связи <a href="https://create-react-app.dev/docs/deployment/#notes-on-client-side-routing">с особенностями совместимости</a> Github Pages с модулем маршрутизации (React Router DOM) в удаленном репозитории <b>не рекомендуется</b> обновление страниц приложения, имеющих добавочные эндпоинты к корневой ссылке <b>/react-mesto-auth</b>)
 </p>
 <p>
-  <b>NB!!</b> На данном этапе не настроена отрисовка ошибок при попытке регистрации пользователя с ранее зарегистрированным электронным адресом, неправильном вводе электронного адреса и/или пароля и т.п. Эти ошибки можно посмотреть в <b>консоли разработчика</b> во вкладке <b>&laquo;Network&raquo;</b> (ответ с сервера будет выделен красным цветом)
+  <b>NB!!</b> На данном этапе не настроена отрисовка ошибок при попытке регистрации пользователя с ранее зарегистрированным электронным адресом, неправильном вводе электронного адреса и/или пароля и т.п. Эти ошибки можно проверить самостоятельно в <b>консоли разработчика</b> во вкладке <b>&laquo;Network&raquo;</b> (ответ с сервера будет выделен красным цветом)
 </p>
 
 <div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22">в начало</a>)</div>
 
-## Методология, процесс создания, проблемы и их решение
+## 4. Процесс создания
 Работа выполнена в <b>1 этап</b>:
 <br>
-Верстка дополнительных компонентов (стартовых окон с формами регистрации и авторизации пользователей) и элементов (гамбургер-меню, кнопка выхода из личного кабинета), написание функционала (с применением функциональной парадигмы программирования)
-<br>
-<br>
-<b>Задачи и проблемы:</b>
-1. Определение компонентов, общих для нескольких страниц и перерисовка элементов
-<b>Решение:</b>выделено<b>2</b> компонента - <b><a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Header/Header.js">Header</a></b> и <b><a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/WelcomeWindowWithForm/WelcomeWindowWithForm.js">WelcomeWindowWithForm</a></b>. В первом из них для перерисовки элемента (ссылки на страницу авторизации/регистрации, кнопки выхода из личного кабинета, бургерного меню) написаны функции, которые отслеживают <b>endpoint</b> открытого у пользователя url, а также <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/hooks/useWindowDimensions.js">разрешение экрана</a>. Второй компонент сделан по типу <b><a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/PopupWithForm/PopupWithForm.js">PopupWithForm</a></b>, в который в свою очередь вставляются <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Register/Register.js">Register</a> и <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Login/Login.js">Login</a>. Такое решение упростило написание логики валидации форм
+Верстка дополнительных компонентов (стартовых окон с формами регистрации и авторизации пользователей) и элементов (гамбургер-меню, кнопка выхода из личного кабинета), написание функционала
+<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22">в начало</a>)</div>
 
-2. Написать кастомный хук для валидации форм
+### 4.1 Основные задачи, проблемы и их решение
+1. Вынос <b>общих компонентов</b> для нескольких страниц и перерисовка элементов
+<p>
+  <b>Решение: </b>выделено <b>2</b> компонента - <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Header/Header.js">Header</a> и <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/WelcomeWindowWithForm/WelcomeWindowWithForm.js">WelcomeWindowWithForm</a>. В первом из них для перерисовки элемента (ссылки на страницу авторизации/регистрации, кнопки выхода из личного кабинета, гамбургер-меню) написаны функции, которые отслеживают <b>endpoint</b> открытого у пользователя <b>url</b>, а также <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/hooks/useWindowDimensions.js">разрешение экрана</a>. Второй компонент сделан по типу <b><a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/PopupWithForm/PopupWithForm.js">PopupWithForm</a></b>, в который в свою очередь вставляются <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Register/Register.js">Register</a> и <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Login/Login.js">Login</a>
+</p>
 
-<br>
+2. Переписать код <b>валидаци</b>и форм под <b>кастомный хук</b>
+<p>
+  <b>Решение:</b> в <a href="https://github.com/elrouss/mesto-react">старом</a> проекте в компонентах <b>3</b> модальных окон (<a href="https://github.com/elrouss/mesto-react/blob/main/src/components/EditAvatarPopup/EditAvatarPopup.js">EditAvatarPopup</a>, <a href="https://github.com/elrouss/mesto-react/blob/main/src/components/EditProfilePopup/EditProfilePopup.js">EditProfilePopup</a>, <a href="https://github.com/elrouss/mesto-react/blob/main/src/components/AddPlacePopup/AddPlacePopup.js">AddPlacePopup</a>) была реализована собственноручно написанная валидация, которая получилась несколько громоздкой. С появлением <b>2</b> новых компонентов (<a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Register/Register.js">Register</a> и <a href="a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Login/Login.js">Login</a>) составлен <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/hooks/useFormWithValidation.js">хук</a>, примененный ко всем названным компонентам, который в итоге сделал код <b>более читаемым</b>, <b>сократил</b> его в <b>1,5 раза</b> и сделал функцию валидации <b>универсальной</b>. Кроме того, в верстке и стилях <a href="https://github.com/elrouss/react-mesto-auth/commit/41709b0c900fa8ab1bd0512bb1f78df7f08d2dcd#:~:text=%40%40%20%2D1%2C29%20%2B1%2C15%20%40%40-,.popup__error%20%7B,-.popup__error%20%7B">переписан</a> код отрисовки ошибок валидации (ранее - применялось абсолютное позиционирование, что некорректно отображало ошибки на мобильных разрешениях (с попаданием в фокус инпутов) и требовало высчитывание точек местоположения (top, left) для промежуточных разрешений
+</p>
 
-<br>
-<b>Решение:</b>в <a href="https://github.com/elrouss/mesto-react">предыдущем</a> проекте была написана валидация форм, 
+3. <b>Проблема отрисовки стартового окна</b> с формой авторизации на несколько миллисекунд при обновлении страницы в личном кабинете
+<p>
+  <b>Решение:</b> в компоненте App создан <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/App/App.js#:~:text=const%20%5BisAppLoading%2C%20setIsAppLoading%5D%20%3D%20useState(false)%3B">стейт-заглушка</a>, ставящийся на этапе загрузки приложения, когда происходит проверка наличия токена и переадресация пользователю по нужному роуту
+</p>
 
 <div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22">в начало</a>)</div>
 
-## Функционал
+## 5. Функционал
 <details>
   <summary>Адаптивный интерфейс <b><i>(в т. ч. новых компонентов и элементов)</i></b></summary>
   <a href="https://elrouss.github.io/react-mesto-auth/">
@@ -164,9 +184,10 @@
 
 <div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22">в начало</a>)</div>
 
-## Планы по улучшению
+## 6. Планы по улучшению
 - Оптимизация лишних ререндеров
 - Вывод в модальном окне после неудачной попытки регистрации/авторизации текста ошибок ("Пользователь с таким электронным адресом уже зарегистрирован", "Неправильный электронный адрес/пароль" и проч.)
+- Исправить "заторможенность" анимации при открытии/закрытии бургерного меню на iPhone
 - Добавление автоматического обновления галереи карточек
 - Добавление функции сабмита форм нажатием на клавишу "Enter" (в настоящий момент работает только в случае клика пользоватем по полю формы)
 
