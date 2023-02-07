@@ -6,33 +6,43 @@
   </a>
 </div>
 
-<details>
-  <summary>Оглавление</summary>
-  <ol>
-    <li><a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%9E%D0%B3%D0%BB%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-,1.%20%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0,-%D0%94%D0%B0%D0%BD%D0%BD%D0%B0%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BD%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0">Описание проекта</a></li>
-    <li><a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%B2%20%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%BE)-,2.%20%D0%A1%D1%82%D0%B5%D0%BA%20%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B9,-(%D0%B2%20%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%BE">Стек технологий</a></li>
-    <li><a href="https://github.com/elrouss/react-mesto-auth#:~:text=3.%20%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%2C%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%20%D0%B8%20%D1%8D%D0%BA%D1%81%D0%BF%D0%BB%D1%83%D0%B0%D1%82%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F">Установка и запуск приложения в локальном репозитории, эксплуатация</a></li>
-    <li><a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%B2%20%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%BE)-,4.%20%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F,-%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B0%20%D0%B2">Процесс создания</a></li>
-    <ul>
-      <li><a href="https://github.com/elrouss/react-mesto-auth#:~:text=4.1%20%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8%2C%20%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D1%8B%20%D0%B8%20%D0%B8%D1%85%20%D1%80%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5">Основные задачи, проблемы и их решение</a></li>
-    </ul>
-    <li><a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%B2%20%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%BE)-,5.%20%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB,-%D0%90%D0%B4%D0%B0%D0%BF%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%20(%D0%B2">Функционал</a></li>
-    <li><a href="https://github.com/elrouss/react-mesto-auth#:~:text=6.%20%D0%9F%D0%BB%D0%B0%D0%BD%D1%8B%20%D0%BF%D0%BE%20%D1%83%D0%BB%D1%83%D1%87%D1%88%D0%B5%D0%BD%D0%B8%D1%8E">Планы по улучшению</a></li>
-  </ol>
-</details>
+<a name="summary">
+  <details>
+    <summary>Оглавление</summary>
+    <ol>
+      <li><a href="#project-description">Описание проекта</a></li>
+      <li><a href="#technologies">Стек технологий</a></li>
+      <li><a href="#installation">Установка и запуск приложения в локальном репозитории, эксплуатация</a></li>
+      <li><a href="#establishing">Процесс создания</a></li>
+      <ul>
+        <li><a href="#tasks-and-problems">Основные задачи, проблемы и их решение</a></li>
+      </ul>
+      <li><a href="#functionality">Функционал</a></li>
+      <li><a href="#enhancement">Планы по улучшению</a></li>
+    </ol>
+  </details>
+</a>
 
-## 1. Описание проекта
+<a name="project-description"><h2>1. Описание проекта</h2></a>
 Данная проектная работа выполнена в рамках образовательной программы <a href="https://practicum.yandex.ru/">Яндекс Практикума</a>. Проект представляет собой <a href="">продолжение</a> портирования на "React" адаптивного приложения (SPA) с профилем пользователя и фотокарточками, <a href="https://github.com/elrouss/mesto">изначально написанного</a> на нативных технологиях: HTML5, CSS3 и JavaScript. В сравнении с предыдущей работой в данном проекте добавлен функционал регистрации и авторизации пользователей на сайте в своем личном кабинете, а также исправлены некоторые ошибки, пропущенные ревьюером
 
-<h4>Ссылка на макет: https://www.figma.com/file/5H3gsn5lIGPwzBPby9jAOo/Sprint-14-RU?node-id=0%3A1
+<h4>Ссылка на макеты:
 <br>
+https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1
+https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1
+https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0%3A1
+https://www.figma.com/file/PSdQFRHoxXJFs2FH8IXViF/JavaScript-9-sprint?node-id=0%3A1
+https://www.figma.com/file/5H3gsn5lIGPwzBPby9jAOo/Sprint-14-RU?node-id=0%3A1
+<br>
+<br>
+
 Ссылка на проект: https://elrouss.github.io/react-mesto-auth/</h4>
 
 <i>* - проект прошел код-ревью</i>
 
-<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22-,%D0%9E%D0%B3%D0%BB%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5,-1.%20%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0">в начало</a>)</div>
+<div align="right">(<a href="#summary">к оглавлению</a>)</div>
 
-## 2. Стек технологий
+<a name="technologies"><h2>2. Стек технологий</h2></a>
 <span>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="Иконка React">
   <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" alt="Иконка React Router">
@@ -40,9 +50,9 @@
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="Иконка HTML5">
 </span>
 
-<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22-,%D0%9E%D0%B3%D0%BB%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5,-1.%20%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0">в начало</a>)</div>
+<div align="right">(<a href="#summary">к оглавлению</a>)</div>
 
-## 3. Установка и запуск приложения в локальном репозитории, эксплуатация (пп. 4-5 актуальны также при работе на Github Pages)
+<a name="installation"><h2>3. Установка и запуск приложения в локальном репозитории, эксплуатация (пп. 4-5 актуальны также при работе на Github Pages)</h2></a>
 1. `git clone https://github.com/elrouss/react-mesto-auth.git` - клонировать репозиторий (с использованием HTTPS) на свое устройство
 2. `npm i` - установить зависимости
 3. `npm run start` - запустить приложение в режиме разработчика (в браузере ввести ссылку `http://localhost:3000/react-mesto-auth/sign-in`, если приложение не открылось там автоматически)
@@ -55,16 +65,16 @@
   <b>NB!!</b> На данном этапе не настроена отрисовка ошибок при попытке регистрации пользователя с ранее зарегистрированным электронным адресом, неправильном вводе электронного адреса и/или пароля и т.п. Эти ошибки можно проверить самостоятельно в <b>консоли разработчика</b> во вкладке <b>&laquo;Network&raquo;</b> (ответ с сервера будет выделен красным цветом)
 </p>
 
-<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22-,%D0%9E%D0%B3%D0%BB%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5,-1.%20%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0">в начало</a>)</div>
+<div align="right">(<a href="#summary">к оглавлению</a>)</div>
 
-## 4. Процесс создания
+<a name="establishing"><h2>4. Процесс создания</h2></a>
 Работа выполнена в <b>1 этап</b>:
 <br>
 Верстка дополнительных компонентов (стартовых окон с формами регистрации и авторизации пользователей) и элементов (гамбургер-меню, кнопка выхода из личного кабинета), написание функционала
 
-<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22-,%D0%9E%D0%B3%D0%BB%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5,-1.%20%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0">в начало</a>)</div>
+<div align="right">(<a href="#summary">к оглавлению</a>)</div>
 
-### 4.1 Основные задачи, проблемы и их решение
+<a name="tasks-and-problems"><h3>4.1 Основные задачи, проблемы и их решение</h3></a>
 1. Вынос <b>общих компонентов</b> для нескольких страниц и перерисовка элементов
 <p>
   <b>Решение: </b>выделено <b>2</b> компонента - <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Header/Header.js">Header</a> и <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/WelcomeWindowWithForm/WelcomeWindowWithForm.js">WelcomeWindowWithForm</a>. В первом из них для перерисовки элемента (ссылки на страницу авторизации/регистрации, кнопки выхода из личного кабинета, гамбургер-меню) написаны функции, которые отслеживают <b>endpoint</b> открытого у пользователя <b>url</b>, а также <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/hooks/useWindowDimensions.js">разрешение экрана</a>. Второй компонент сделан по типу <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/PopupWithForm/PopupWithForm.js">PopupWithForm</a>, в который в свою очередь вставляются <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Register/Register.js">Register</a> и <a href="https://github.com/elrouss/react-mesto-auth/blob/main/src/components/Login/Login.js">Login</a>
@@ -85,9 +95,9 @@
   <b>Решение:</b> открытие и закрытие модального окна происходило только при наличии данных в передаваемом объекте (стейт <b>selectedCard</b>), появлявшихся и исчезавших во время клика по изображению карточки. Соответственно, закрытие окна начиналось только при очистке данных в объекте карточки (<b>Object.keys(card).length !== 0</b>, отсюда - <b>undefined</b>). В качестве <a href="https://github.com/elrouss/react-mesto-auth/commit/6cdc7d24817f96a12c206eeca30104d171b7040f">решения</a> этой проблемы был введен новый стейт <b>isImagePopupOpened</b> с булевым значением, который меняется при клике на карточку, что приводит к открытию и закрытию модального окна (объект карточки продолжает храниться в стейте <b>selectedCard</b>). Для очистки данных в модальном окне при закрытии во избежание "моргания" изображения при открытии модального окна другой карточки добавлен хук <b>useEffect</b> с методом <b>setTimeout</b>, который возвращает стейт <b>selectedCard</b> в исходное состояние сразу же после завершения анимации плавного закрытия модального окна
 </p>
 
-<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22-,%D0%9E%D0%B3%D0%BB%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5,-1.%20%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0">в начало</a>)</div>
+<div align="right">(<a href="#summary">к оглавлению</a>)</div>
 
-## 5. Функционал
+<a name="functionality"><h2>5. Функционал</h2></a>
 <details>
   <summary>Адаптивный интерфейс <b><i>(в т. ч. новых компонентов и элементов)</i></b></summary>
   <a href="https://elrouss.github.io/react-mesto-auth/">
@@ -188,9 +198,9 @@
 <br>
 <b><i>* - жирным курсивом выделен дополнительный функционал, не входящий в обязательный перечень требований для получения зачета по проектной работе</i></b>
 
-<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22-,%D0%9E%D0%B3%D0%BB%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5,-1.%20%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0">в начало</a>)</div>
+<div align="right">(<a href="#summary">к оглавлению</a>)</div>
 
-## 6. Планы по улучшению
+<a name="enhancement"><h2>6. Планы по улучшению</h2></a>
 - Оптимизация лишних ререндеров
 - Вывод в модальном окне после неудачной попытки регистрации/авторизации текста ошибок ("Пользователь с таким электронным адресом уже зарегистрирован", "Неправильный электронный адрес/пароль" и проч.)
 - Исправление "заторможенности" анимации при открытии/закрытии бургерного меню на iPhone
@@ -198,4 +208,10 @@
 - Добавление автоматического обновления галереи карточек
 - Добавление функции сабмита форм нажатием на клавишу "Enter" (в настоящий момент работает только в случае клика пользоватем по полю формы)
 
-<div align="right">(<a href="https://github.com/elrouss/react-mesto-auth#:~:text=%D0%A3%D1%87%D0%B5%D0%B1%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%3A%20%22%D0%9C%D0%B5%D1%81%D1%82%D0%BE%22-,%D0%9E%D0%B3%D0%BB%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5,-1.%20%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0">в начало</a>)</div>
+<div align="right">(<a href="#summary">к оглавлению</a>)</div>
+
+<div align="center">
+  <a href="https://elrouss.github.io/react-mesto-auth/">
+    <img width="550" alt="Героини сериала 'Секс в большом городе'" src="https://user-images.githubusercontent.com/108838349/217341159-4ecf6691-34f3-481a-98f1-176140bf2397.png">
+  </a>
+</div>
